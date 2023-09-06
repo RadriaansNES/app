@@ -43,3 +43,19 @@ nav {
   padding: 10px 18.75px 10px 18.75px;
 }
 
+#footer {
+  text-align: center;
+  background-color: white;
+  font-size: 16px;
+}
+
+#footer p {
+  margin-bottom: 0;
+}
+
+#footer a{
+  font-size: 26px;
+  text-decoration: none;
+  color: black;
+}
+

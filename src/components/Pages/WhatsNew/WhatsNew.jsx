@@ -4,7 +4,9 @@ import Layout from '../../LayoutComp/Layout';
 function WhatsNew() {
   return (
     <Layout>
-      <p>THE HOME PAGE MY GUY</p>
+      <p>
+        main file my man
+      </p>
     </Layout>
   );
 }
