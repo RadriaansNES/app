@@ -7,7 +7,7 @@ function MenuNavbar() {
   return (
     <Navbar expand="lg" className="bg-body-tertiary">
       <Container>
-        <div class='hide'/>
+        <div className='hide'/>
         <img src={logo} alt='Logo' id='headerLogo' />
         <Navbar.Toggle aria-controls="basic-navbar-nav" className="custom-toggler"/>
       </Container>
