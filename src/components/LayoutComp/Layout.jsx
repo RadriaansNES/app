@@ -1,12 +1,10 @@
 import React from 'react';
-import Navbar from './Navbar';
-import Header from './Header';
+import MenuNavbar from './Navbar';
 
 function Layout({ children }) {
   return (
     <div>
-      <Navbar />
-      <Header />
+      <MenuNavbar />
       <main>
         {children}
       </main>

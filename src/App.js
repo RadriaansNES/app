@@ -7,6 +7,8 @@ import Toppings from './components/Pages/Toppings/Toppings';
 import SideOrders from './components/Pages/SideOrders/SideOrders';
 import Beverages from './components/Pages/Beverages/Beverages';
 import DeliveryMap from './components/Pages/DeliveryMap/DeliveryMap';
+import 'bootstrap/dist/css/bootstrap.min.css';
+import './App.css';
 
 function App() {
   return (
