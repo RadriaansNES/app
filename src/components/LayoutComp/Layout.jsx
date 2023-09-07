@@ -1,6 +1,5 @@
 import React from 'react';
 import MenuNavbar from './Navbar';
-import Container from 'react-bootstrap/esm/Container';
 
 function Layout({ children }) {
   return (
@@ -9,7 +8,7 @@ function Layout({ children }) {
       <main>
         {children}
       </main>
-      <Container id='footer'>
+      <div className='footer'>
         <p>
           1955 Lasalle Blvd. - <a href='tel:7055666969'><strong>705-566-6969</strong></a>
         </p>
@@ -19,7 +18,7 @@ function Layout({ children }) {
         <p>
         3020 HWY. 69 N. - <a href='tel:7055885858'><strong>705-588-5858</strong></a>
         </p>
-      </Container>
+      </div>
     </div>
   );
 }
