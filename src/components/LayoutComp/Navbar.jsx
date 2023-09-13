@@ -2,6 +2,7 @@ import Container from 'react-bootstrap/Container';
 import Nav from 'react-bootstrap/Nav';
 import Navbar from 'react-bootstrap/Navbar';
 import logo from '../../imgs/logo.jpg';
+import SpecialTies from '../Pages/Specialties/Specialties';
 
 function MenuNavbar() {
   return (
@@ -15,7 +16,7 @@ function MenuNavbar() {
         <Navbar.Collapse id="basic-navbar-nav">
           <Nav className="me-auto">
             <Nav.Link href="#home">WHAT'S NEW</Nav.Link>
-            <Nav.Link href="#link">SPECIALTIES</Nav.Link>
+            <Nav.Link href="/Specialties" element={SpecialTies}>SPECIALTIES</Nav.Link>
             <Nav.Link href="#home">CREATE YOUR OWN</Nav.Link>
             <Nav.Link href="#link">TOPPINGS</Nav.Link>
             <Nav.Link href="#home">SIDE ORDERS</Nav.Link>
