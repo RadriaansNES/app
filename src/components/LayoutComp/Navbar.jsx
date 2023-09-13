@@ -3,7 +3,7 @@ import Nav from 'react-bootstrap/Nav';
 import Navbar from 'react-bootstrap/Navbar';
 import logo from '../../imgs/logo.jpg';
 import Menu from '../Pages/Menu/Menu';
-import WhatsNew from '../Pages/WhatsNew/WhatsNew';
+import WhatsNew from '../Pages/Menu/WhatsNew';
 import cart from '../../imgs/cartf.png'
 
 function MenuNavbar() {

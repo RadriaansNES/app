@@ -10,7 +10,7 @@ function Menu() {
         </div>
         <div className='BYOP'>
           <div>
-            <h2>Build Your Own Pizza</h2>
+            <h3>Build Your Own Pizza</h3>
           </div>
           <div className='BYOP-Sizes'>
             <a href='/BYOPizza?s=1'>Small (11") size</a>
@@ -21,8 +21,10 @@ function Menu() {
         </div>
         <div className='Types'>
           <div>
-            <h2>Classics</h2>
-            <p>Classic pizza img. </p>
+            <a href='/ClassicPizzas'>
+              <h2>Classics</h2>
+              <p>Classic pizza img. </p>
+            </a>
           </div>
           <div>
             <h2>Specialties</h2>
@@ -31,7 +33,6 @@ function Menu() {
           <div>
             <h2>Super Specialties</h2>
             <p>Super spec. img. </p>
-
           </div>
           <div>
             <h2>Subs</h2>
