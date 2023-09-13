@@ -188,6 +188,7 @@ h4 {
 .menu {
   background-image: url(../src/imgs/specialties-bkgd.jpg);
   background-size: cover;
+  min-height: 500px;
 }
 
 .BYOP {
@@ -274,5 +275,17 @@ h2 {
 }
 
 #ClassicsZa {
-  padding-bottom: 60px;
+  padding-bottom: 20px;
+}
+
+/* Checkout Component */
+
+.Checkout {
+  display: flexbox;
+  background-color: white;
+  margin: 40px 12px 30px 12px;
+  border: 1px solid black;
+  min-height: 300px;
+  padding: 20px;
+  text-align: center;
 }

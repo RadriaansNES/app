@@ -9,21 +9,30 @@ import 'bootstrap/dist/css/bootstrap.min.css';
 import './App.css';
 import BYOPizza from './components/Pages/BYOPizza/BYOPizza';
 import Classics from './components/Pages/Menu/Classics'
+import { createStore } from 'redux';
+import { Provider } from 'react-redux';
+import rootReducer from './redux/reducers';
+import ShoppingCart from './components/Cart/ShoppingCart';
+
+const store = createStore(rootReducer);
 
 function App() {
   return (
-    <Router>
-      <Routes>
-        <Route path='/' element={<WhatsNew />} />
-        <Route path="/WhatsNew" element={<WhatsNew />} />
-        <Route path="/Menu" element={<Menu />} />
-        <Route path="/BYOPizza" element={<BYOPizza />} />
-        <Route path="/ClassicPizzas" element={<Classics />} />
-        <Route path="/SideOrders" element={<SideOrders />} />
-        <Route path="/Beverages" element={<Beverages />} />
-        <Route path="/DeliveryMap" element={<DeliveryMap />} />
-      </Routes>
-    </Router>
+    <Provider store={store}>
+      <Router>
+        <Routes>
+          <Route path='/' element={<WhatsNew />} />
+          <Route path="/WhatsNew" element={<WhatsNew />} />
+          <Route path="/Menu" element={<Menu />} />
+          <Route path="/BYOPizza" element={<BYOPizza />} />
+          <Route path="/ClassicPizzas" element={<Classics />} />
+          <Route path="/SideOrders" element={<SideOrders />} />
+          <Route path="/Beverages" element={<Beverages />} />
+          <Route path="/DeliveryMap" element={<DeliveryMap />} />
+          <Route path="/checkout" element={<ShoppingCart />} />
+        </Routes>
+      </Router>
+    </Provider>
   );
 }
 
