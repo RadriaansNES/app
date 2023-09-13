@@ -1,3 +1,13 @@
+:root {
+  --1st-colour: #00a450;
+  --2nd-colour: #8cc63f;
+ }
+
+h1 {
+  color: white;
+  text-shadow: 0px 0px 8px rgba(0, 0, 0, 1);
+}
+
 /* navbar */
 
 #headerLogo {
@@ -20,8 +30,12 @@ nav {
   margin-right: 0px;
 }
 
-.hide {
-  width: 54px;
+.cart {
+  width: 40px;
+  margin-left: 7px;
+  margin-right: 7px;
+  height: 40px;
+  margin-bottom: 5px;
 }
 
 .navbar-toggler {
@@ -50,7 +64,8 @@ nav {
   text-align: center;
   background-color: white;
   font-size: 16px;
-  padding-bottom: 20px;
+  padding-bottom: 15px;
+  padding-top: 15px;
 }
 
 .footer p {
@@ -63,18 +78,23 @@ nav {
   color: black;
 }
 
-/* whats new */
+/* whats new */ 
 
 .header h1 {
   display: flex;
+  justify-content: center;
   padding: 20px;
   font-size: 40px;
   margin: 0;
   height: 100px;
-  align-items: center;
-  color: white;
-  text-shadow: 0px 0px 8px rgba(0, 0, 0, 1);
-  background-color: #00a450;
+  background-color: var(--1st-colour);
+}
+
+.header button {
+  border-radius: 7px;
+  background-color: white;
+  font-size: 24px;
+  width: 400px;
 }
 
 .main {
@@ -85,33 +105,30 @@ nav {
 }
 
 .combos {
-  display: grid;
-  background-color: white;
-  margin-left: 12px;
-  margin-right: 12px;
-  grid-template-columns: repeat(2, 1fr); 
-  grid-template-rows: repeat(3, auto); 
-  border-bottom: 0px;
-  border-top: 1px solid black;
-  border-left: 1px solid black;
-  border-right: 1px solid black;
-
+  display: flex;
+  flex-wrap: wrap;
+  padding: 10px;
 }
 
 .combocell {
   text-align: center; 
-  border-bottom: 1px solid black;
-}
-
-#right {
-  border-left: 1px solid black;
+  display: flex;
+  flex-direction: column;
+  border: 1px solid black;
+  background-color: white;
+  margin-top: 40px;
+  text-align: center;
+  flex-basis: calc(50% - 10px);
+  box-sizing: border-box;
+  margin: 5px; 
 }
 
 
 .combocell p {
   font-weight: bold;
   font-size: 12px;
-  min-height: 36px;
+  padding: 5px;
+  margin-top: auto;
 }
 
 .combocell .price {
@@ -120,7 +137,6 @@ nav {
   text-shadow: 0px 0px 8px rgba(0, 0, 0, 1);
   color: white;
   font-size: 24px;
-  padding-bottom: 3px;
   font-weight: normal;
 }
 
@@ -142,7 +158,7 @@ nav {
 }
 
 .mainCombo .maininfo {
-  padding-left: 5px;
+  padding-left: 15px;
   display: flex;
   align-items: center;
 }
@@ -160,3 +176,68 @@ h4 {
   font-weight: bold;
 }
 
+
+/* Menu */
+
+.menu {
+  background-image: url(../src/imgs/specialties-bkgd.jpg);
+  background-size: cover;
+}
+
+.BYOP {
+  background-color: white;
+  margin-top: 40px;
+  padding: 20px;
+  text-align: center;
+  margin-left: 12px;
+  margin-right: 12px;
+}
+
+.Types h2 {
+    display: block;
+    color: #fffffe;
+    background-color: var(--1st-colour);
+    box-shadow: 5px 5px 10px 0px rgba(0, 0, 0, 0.5);
+    position: relative;
+    margin-top: -20px;
+    margin-left: -5px;
+    margin-right: 5px;
+}
+
+
+.BYOP-Sizes {
+  border-top: 1px solid black;
+  display: grid;
+  grid-template-columns: 50% 50%;
+}
+
+.BYOP-Sizes a {
+  margin-top: 20px;
+  font-size: 18px;
+}
+
+.Types {
+  margin-top: 40px;
+  display: flex;
+  flex-wrap: wrap;
+  padding-bottom: 20px;
+}
+
+.Types div {
+  background-color: white;
+  height: 120px;
+  margin-top: 40px;
+  text-align: center;
+  flex-basis: calc(50% - 24px);
+  box-sizing: border-box;
+  margin: 12px; 
+  margin-top: 40px;
+}
+
+/* BYOP */
+.BYOP-Creator {
+  padding: 12px;
+  background-image: url(../src/imgs/create-your-own-bkgd.jpg);
+  height: 1200px;
+  background-size: cover;
+}

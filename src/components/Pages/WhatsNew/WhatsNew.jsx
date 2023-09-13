@@ -5,7 +5,8 @@ function WhatsNew() {
   return (
     <Layout>
       <div className='header'>
-        <h1>WHAT'S NEW</h1>
+        <h1>
+          <button>START YOUR ORDER</button></h1>
       </div>
       <div className='main'>
         <div className='mainCombo'>
@@ -18,7 +19,7 @@ function WhatsNew() {
             <p>2 Small Pizzas<br />6 Toppings combined</p>
             <p className='price'>$21.99</p>
           </div>
-          <div className='combocell' id='right'>
+          <div className='combocell'>
             <h4>COMBO 2</h4>
             <p>1 Medium Classic Pizza</p>
             <p className='price'>$17.49</p>
@@ -28,7 +29,7 @@ function WhatsNew() {
             <p>1 Large Pizza<br />1 Topping<br/>Pick-up Only</p>
             <p className='price'>$11.99</p>
           </div>
-          <div className='combocell' id='right'>
+          <div className='combocell'>
             <h4>COMBO 4</h4>
             <p>1 Large Pizza<br />3 Toppings<br/>plus 4 pack of Coke</p>
             <p className='price'>$23.99</p>
@@ -38,7 +39,7 @@ function WhatsNew() {
             <p>1 Extra Large Pizza<br />3 Toppings</p>
             <p className='price'>$22.99</p>
           </div>
-          <div className='combocell' id='right'>
+          <div className='combocell'>
             <h4>COMBO 6</h4>
             <p>2 Large Pizzas<br />6 Toppings combined</p>
             <p className='price'>$33.99</p>
