@@ -87,7 +87,7 @@ nav {
 
 .footer {
   text-align: center;
-  background-color: white;
+  background-color: var(--2nd-colour);
   font-size: 16px;
   padding-bottom: 15px;
   padding-top: 15px;
@@ -307,4 +307,22 @@ h2 {
   min-height: 300px;
   padding: 20px;
   text-align: center;
+}
+
+.checkout-item {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr 1fr;
+  grid-template-rows: 1fr 1fr;
+  margin-bottom: 20px;
+}
+
+.checkout-item p {
+  margin: 5;
+}
+
+.checkout-item button {
+  border-radius: 12px;
+  background-color: red;
+  font-size: 12px;
+  color: white;
 }

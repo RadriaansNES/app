@@ -109,9 +109,9 @@ function WhatsNew({ addToCart }) {
           <button>START YOUR ORDER</button></h1>
       </div>
       <div className='main'>
-        <div className='mainCombo' onClick={() => handleAddToCart(combos[0])}>
-          <p className='maininfo'>2 Medium Pizzas<br />6 Toppings combined</p>
-          <p className='mainprice'>Only<br /><span>$26.99</span><em><br />+tax</em></p>
+        <div className='mainCombo'>
+          <p className='maininfo' onClick={() => handleAddToCart(combos[0])}>2 Medium Pizzas<br />6 Toppings combined</p>
+          <p className='mainprice' onClick={() => handleAddToCart(combos[0])}>Only<br /><span>$26.99</span><em><br />+tax</em></p>
         </div>
         <div className='combos'>
           {combos.slice(1).map((combo) => (

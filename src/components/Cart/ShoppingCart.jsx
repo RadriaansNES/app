@@ -45,10 +45,14 @@ function CartItemList({ cartItems, removeFromCart }) {
 function CartItem({ item, removeFromCart }) {
   return (
     <div className="checkout-item">
-      <span>{item.name}</span>
-      <span>Quantity: {item.quantity}</span>
-      <span>Price: ${item.price.toFixed(2)}</span>
+      <p><strong>{item.name}</strong></p>
+      <p>{item.description}</p>
+      <p>   Qty: </p>
+      <p>{item.quantity}</p> 
       <button onClick={() => removeFromCart(item.id)}>Remove</button>
+      <p></p>
+      <p></p>
+      <p>${item.price.toFixed(2) * item.quantity}</p>
     </div>
   );
 }
