@@ -6,9 +6,12 @@ import { addItemToCart } from '../../Cart/cartUtils'; // Import the utility func
 
 function Classics({ addToCart }) {
     const [alertMessage, setAlertMessage] = useState('');
+    const [showModal, setShowModal] = useState(false);
+    const [selectedPizza, setSelectedPizza] = useState(null);
 
     const handleAddToCart = (item) => {
         addItemToCart(addToCart, setAlertMessage, item); // Pass the item directly to the utility function
+        closeModal();
     };
 
     const pizzaOptions = [
@@ -50,6 +53,16 @@ function Classics({ addToCart }) {
         },
     ];
 
+    const openModal = (pizza) => {
+        setSelectedPizza(pizza);
+        setShowModal(true);
+    };
+
+    const closeModal = () => {
+        setShowModal(false);
+        setSelectedPizza(null);
+    };
+
     return (
         <Layout alertMessage={alertMessage} setAlertMessage={setAlertMessage}>
             <div className='menu'>
@@ -58,13 +71,50 @@ function Classics({ addToCart }) {
                 </div>
                 <div className='PizzaTypes'>
                     {pizzaOptions.map((pizza) => (
-                        <div key={pizza.id}>
+                        <div key={pizza.id} onClick={() => openModal(pizza)}>
                             <h2>{pizza.name}</h2>
                             <p>{pizza.cdescrip}</p>
                         </div>
                     ))}
                 </div>
             </div>
+
+            {showModal && selectedPizza && (
+                <div className='modal'>
+                    <h2>{selectedPizza.name}</h2>
+                    <p>{selectedPizza.cdescrip}</p>
+                    <form className='size-form'>
+                        <div className='size-option'>
+                            <label>
+                                <p>Small</p>
+                                <input type="radio" name="pizzaSize" value="small" />
+                            </label>
+                        </div>
+                        <div className='size-option'>
+                            <label>
+                                <p>Medium</p>
+                                <input type="radio" name="pizzaSize" value="medium" />
+                            </label>
+                        </div>
+                        <div className='size-option'>
+                            <label>
+                                <p>Large</p>
+                                <input type="radio" name="pizzaSize" value="large" />
+                            </label>
+                        </div>
+                        <div className='size-option'>
+                            <label>
+                                <p>Extra Large</p>
+                                <input type="radio" name="pizzaSize" value="extra-large" />
+                            </label>
+                        </div>
+                    </form>
+                    <p>Price: ${selectedPizza.price.toFixed(2)}</p>
+                    <button onClick={() => handleAddToCart(selectedPizza)}>Add to Cart</button>
+                    <button onClick={closeModal}>Close</button>
+                </div>
+            )}
+
         </Layout>
     );
 }

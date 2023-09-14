@@ -365,3 +365,41 @@ h2 {
   font-size: 12px;
   color: white;
 }
+
+/* Modal */
+.modal {
+  display: block;
+  position: fixed;
+  width: 90%;
+  height: auto;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  background-color: white;
+  padding: 20px;
+  z-index: 9000;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
+  text-align: center;
+  border: 2px solid black;
+}
+
+.size-form {
+  display: flex;
+  flex-direction: column;
+}
+
+.size-option {
+  display: flex;
+  align-items: center;
+}
+
+.size-option label {
+  display: flex;
+  align-items: center;
+  justify-content: space-between; /* Make label occupy entire space */
+  width: 100%; /* Make label occupy entire width */
+}
+
+.size-option input[type="radio"] {
+  margin-bottom: 8px; /* Add spacing between radio button and text */
+}
