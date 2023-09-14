@@ -32,11 +32,19 @@ function ShoppingCart({ cartItems, removeFromCart }) {
 
 // Extracted CartItemList component
 function CartItemList({ cartItems, removeFromCart }) {
+  // Calculate the subtotal
+  const subtotal = cartItems.reduce((total, item) => {
+    return total + item.price * item.quantity;
+  }, 0);
+
   return (
     <div className="checkout-items">
       {cartItems.map((item) => (
         <CartItem key={item.id} item={item} removeFromCart={removeFromCart} />
       ))}
+      <div>
+        <strong>Your subtotal is : ${subtotal.toFixed(2)}</strong>
+      </div>
     </div>
   );
 }
@@ -45,15 +53,27 @@ function CartItemList({ cartItems, removeFromCart }) {
 function CartItem({ item, removeFromCart }) {
   return (
     <div className="checkout-item">
-      <p><strong>{item.name}</strong></p>
-      <p></p>
-      <p>   Qty: </p>
-      <p>{item.quantity}</p>
-      <p>{item.description}</p>
-      <button onClick={() => removeFromCart(item.id)}>Remove</button>
-      <p></p>
-      <p></p>
-      <p>${item.price.toFixed(2) * item.quantity}</p>
+      <div className="cell-a">
+        <p><strong>{item.name}</strong></p>
+      </div>
+      <div className="cell-b r">
+        <p>Qty:</p>
+      </div>
+      <div className="cell-c r">
+        <p>{item.quantity}</p>
+      </div>
+      <div className="cell-d">
+        <p>{item.description}</p>
+      </div>
+      <div className="cell-r">
+        <button onClick={() => removeFromCart(item.id)}>Remove</button>
+      </div>
+      <div className="cell-e r">
+        <p><strong>${item.price.toFixed(2) * item.quantity}</strong></p>
+      </div>
+      <div className="cell-n">
+        <p>{}</p>
+      </div>
     </div>
   );
 }
