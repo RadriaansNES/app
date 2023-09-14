@@ -366,6 +366,12 @@ h2 {
   color: white;
 }
 
+#checkB {
+  width: 80%;
+  background-color: var(--1st-colour);
+  margin-top: 20px;
+}
+
 /* Modal */
 .modal {
   display: block;

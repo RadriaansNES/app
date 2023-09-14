@@ -44,6 +44,8 @@ function CartItemList({ cartItems, removeFromCart }) {
       ))}
       <div>
         <strong>Your subtotal is : ${subtotal.toFixed(2)}</strong>
+        <br/>
+        <button id='checkB'>Checkout</button>
       </div>
     </div>
   );
