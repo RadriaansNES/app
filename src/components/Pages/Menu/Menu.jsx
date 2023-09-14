@@ -14,10 +14,10 @@ function Menu() {
             <h3>Build Your Own Pizza</h3>
           </div>
           <div className='BYOP-Sizes'>
-            <a href='/BYOPizza?s=1'>Small (11") size</a>
-            <a href='/BYOPizza?s=2'>Medium (13") size</a>
-            <a href='/BYOPizza?s=3'>Large (15") size</a>
-            <a href='/BYOPizza?s=4'>Extra Large (18") size</a>
+            <a href='/BYOPizza?s=1'>Small (11")</a>
+            <a href='/BYOPizza?s=2'>Medium (13")</a>
+            <a href='/BYOPizza?s=3'>Large (15")</a>
+            <a href='/BYOPizza?s=4'>Extra Large (18")</a>
           </div>
         </div>
         <div className='Types'>
