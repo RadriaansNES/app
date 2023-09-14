@@ -3,6 +3,7 @@ export const addItemToCart = (addToCart, setAlertMessage, combo) => {
       id: combo.id,
       name: combo.name,
       quantity: 1,
+      description: combo.cdescrip,
       price: combo.price,
     });
   

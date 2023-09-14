@@ -17,6 +17,7 @@ function WhatsNew({ addToCart }) {
     {
       id: 0,
       name: 'Special Combo',
+      cdescrip: '2 Medium pizzas, 6 toppings',
       description: (
         <div>
           2 Medium Pizzas
@@ -29,6 +30,7 @@ function WhatsNew({ addToCart }) {
     {
       id: 1,
       name: 'COMBO 1',
+      cdescrip: '2 Small pizzas, 6 toppings',
       description: (
         <div>
           2 Small Pizzas
@@ -41,6 +43,7 @@ function WhatsNew({ addToCart }) {
     {
       id: 2,
       name: 'COMBO 2',
+      cdescrip: '1 Medium classic pizza',
       description: (
         <div>
           1 Medium Classic Pizza
@@ -51,6 +54,7 @@ function WhatsNew({ addToCart }) {
     {
       id: 3,
       name: 'COMBO 3',
+      cdescrip: '1 Large pizza, 1 topping',
       description: (
         <div>
           1 Large Pizza
@@ -65,6 +69,7 @@ function WhatsNew({ addToCart }) {
     {
       id: 4,
       name: 'COMBO 4',
+      cdescrip: '1 Large pizza, 3 toppings, 4 pack of Coke',
       description: (
         <div>
           1 Large Pizza
@@ -79,6 +84,7 @@ function WhatsNew({ addToCart }) {
     {
       id: 5,
       name: 'COMBO 5',
+      cdescrip: '1 Extra large pizza, 3 toppings',
       description: (
         <div>
           1 Extra Large Pizza
@@ -91,6 +97,7 @@ function WhatsNew({ addToCart }) {
     {
       id: 6,
       name: 'COMBO 6',
+      cdescrip: '2 Large pizzas, 6 toppings',
       description: (
         <div>
           2 Large Pizzas

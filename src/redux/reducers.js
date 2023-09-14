@@ -14,29 +14,29 @@ const findItemIndex = (cartItems, item) =>
 const cartReducer = (state = initialState, action) => {
   switch (action.type) {
     case ADD_TO_CART:
-  const itemToAdd = action.payload;
-  const existingItemIndex = findItemIndex(state.cartItems, itemToAdd);
+      const itemToAdd = action.payload;
+      const existingItemIndex = findItemIndex(state.cartItems, itemToAdd);
 
-  if (existingItemIndex !== -1) {
-    // If the item already exists in the cart, update its quantity and description
-    const updatedCartItems = [...state.cartItems];
-    updatedCartItems[existingItemIndex].quantity += 1;
-    updatedCartItems[existingItemIndex].description = itemToAdd.description; // Update description
+      if (existingItemIndex !== -1) {
+        // If the item already exists in the cart, update its quantity and description
+        const updatedCartItems = [...state.cartItems];
+        updatedCartItems[existingItemIndex].quantity += 1;
+        updatedCartItems[existingItemIndex].description = itemToAdd.description; // Update description
 
-    sessionStorage.setItem('cartItems', JSON.stringify(updatedCartItems)); // Save to session storage
-    return {
-      ...state,
-      cartItems: updatedCartItems,
-    };
-  } else {
-    // If the item is not in the cart, add it
-    const updatedCartItemsAdd = [...state.cartItems, itemToAdd];
-    sessionStorage.setItem('cartItems', JSON.stringify(updatedCartItemsAdd)); // Save to session storage
-    return {
-      ...state,
-      cartItems: updatedCartItemsAdd,
-    };
-  }
+        sessionStorage.setItem('cartItems', JSON.stringify(updatedCartItems)); // Save to sessionStorage
+        return {
+          ...state,
+          cartItems: updatedCartItems,
+        };
+      } else {
+        // If the item is not in the cart, add it
+        const updatedCartItemsAdd = [...state.cartItems, itemToAdd];
+        sessionStorage.setItem('cartItems', JSON.stringify(updatedCartItemsAdd)); // Save to sessionStorage
+        return {
+          ...state,
+          cartItems: updatedCartItemsAdd,
+        };
+      }
 
 
     case REMOVE_FROM_CART:

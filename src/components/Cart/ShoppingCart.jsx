@@ -46,9 +46,10 @@ function CartItem({ item, removeFromCart }) {
   return (
     <div className="checkout-item">
       <p><strong>{item.name}</strong></p>
-      <p>{item.description}</p>
+      <p></p>
       <p>   Qty: </p>
-      <p>{item.quantity}</p> 
+      <p>{item.quantity}</p>
+      <p>{item.description}</p>
       <button onClick={() => removeFromCart(item.id)}>Remove</button>
       <p></p>
       <p></p>
