@@ -14,20 +14,34 @@ function ShoppingCart({ cartItems, removeFromCart }) {
           {cartItems.length === 0 ? (
             <p>Your cart is empty.</p>
           ) : (
-            <ul>
-              {cartItems.map((item) => (
-                <li key={item.id}>
-                  <span>{item.name}</span>
-                  <span>Quantity: {item.quantity}</span>
-                  <span>Price: ${item.price.toFixed(2)}</span>
-                  <button onClick={() => removeFromCart(item.id)}>Remove</button>
-                </li>
-              ))}
-            </ul>
+            <CartItemList cartItems={cartItems} removeFromCart={removeFromCart} />
           )}
         </div>
       </div>
     </Layout>
+  );
+}
+
+// Extracted CartItemList component
+function CartItemList({ cartItems, removeFromCart }) {
+  return (
+    <ul>
+      {cartItems.map((item) => (
+        <CartItem key={item.id} item={item} removeFromCart={removeFromCart} />
+      ))}
+    </ul>
+  );
+}
+
+// Extracted CartItem component
+function CartItem({ item, removeFromCart }) {
+  return (
+    <li>
+      <span>{item.name}</span>
+      <span>Quantity: {item.quantity}</span>
+      <span>Price: ${item.price.toFixed(2)}</span>
+      <button onClick={() => removeFromCart(item.id)}>Remove</button>
+    </li>
   );
 }
 
