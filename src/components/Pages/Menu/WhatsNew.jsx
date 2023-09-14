@@ -1,10 +1,13 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { connect } from 'react-redux';
 import { addToCart } from '../../../redux/actions'; // Import the addToCart action
 import Layout from '../../LayoutComp/Layout';
+import Alert from '../../Cart/Alert'; // Import the Alert component
 
 function WhatsNew({ addToCart }) {
-  // Define an array of combo objects with details
+  const [alertMessage, setAlertMessage] = useState('');
+  
+
   const combos = [
     {
       id: 0,
@@ -99,9 +102,12 @@ function WhatsNew({ addToCart }) {
     addToCart({
       id: combo.id,
       name: combo.name,
-      quantity: 1, // You can adjust this based on user input or logic
+      quantity: 1,
       price: combo.price,
     });
+
+    // Set the alert message
+    setAlertMessage('Item successfully added to cart');
   };
 
   return (
@@ -111,6 +117,9 @@ function WhatsNew({ addToCart }) {
           <button>START YOUR ORDER</button></h1>
       </div>
       <div className='main'>
+      {alertMessage && (
+          <Alert message={alertMessage} onClose={() => setAlertMessage('')} />
+        )}
         <div className='mainCombo' onClick={() => handleAddToCart(combos[0])}>
           <p className='maininfo'>2 Medium Pizzas<br />6 Toppings combined</p>
           <p className='mainprice'>Only<br /><span>$26.99</span><em><br />+tax</em></p>
