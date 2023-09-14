@@ -6,22 +6,51 @@ const initialState = {
   cartItems: JSON.parse(sessionStorage.getItem('cartItems')) || [], // Read from session storage
 };
 
+const findItemIndex = (cartItems, item) =>
+  cartItems.findIndex(
+    (cartItem) => cartItem.id === item.id && cartItem.name === item.name
+  );
+
 const cartReducer = (state = initialState, action) => {
   switch (action.type) {
     case ADD_TO_CART:
-      const updatedCartItemsAdd = [...state.cartItems, action.payload];
-      sessionStorage.setItem('cartItems', JSON.stringify(updatedCartItemsAdd)); // Save to session storage
-      return {
-        ...state,
-        cartItems: updatedCartItemsAdd,
-      };
+      const itemToAdd = action.payload;
+      const existingItemIndex = findItemIndex(state.cartItems, itemToAdd);
+
+      if (existingItemIndex !== -1) {
+        // If the item already exists in the cart, update its quantity
+        const updatedCartItems = [...state.cartItems];
+        updatedCartItems[existingItemIndex].quantity += 1;
+
+        sessionStorage.setItem('cartItems', JSON.stringify(updatedCartItems)); // Save to session storage
+        return {
+          ...state,
+          cartItems: updatedCartItems,
+        };
+      } else {
+        // If the item is not in the cart, add it
+        const updatedCartItemsAdd = [...state.cartItems, itemToAdd];
+        sessionStorage.setItem('cartItems', JSON.stringify(updatedCartItemsAdd)); // Save to session storage
+        return {
+          ...state,
+          cartItems: updatedCartItemsAdd,
+        };
+      }
+
     case REMOVE_FROM_CART:
-      const updatedCartItemsRemove = state.cartItems.filter((item) => item.id !== action.payload);
-      sessionStorage.setItem('cartItems', JSON.stringify(updatedCartItemsRemove)); // Save to session storage
+      const updatedCartItemsRemove = state.cartItems.filter(
+        (item) => item.id !== action.payload
+      );
+
+      sessionStorage.setItem(
+        'cartItems',
+        JSON.stringify(updatedCartItemsRemove)
+      ); // Save to session storage
       return {
         ...state,
         cartItems: updatedCartItemsRemove,
       };
+
     default:
       return state;
   }
