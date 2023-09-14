@@ -2,13 +2,13 @@ import React, { useState } from 'react';
 import { connect } from 'react-redux';
 import Layout from '../../LayoutComp/Layout';
 import { addToCart } from '../../../redux/actions';
-import { addItemToCart } from '../../Cart/cartUtils'; // Import the utility function
+import { addItemToCart } from '../../Cart/cartUtils'; 
 
 function Classics({ addToCart }) {
     const [alertMessage, setAlertMessage] = useState('');
     const [showModal, setShowModal] = useState(false);
     const [selectedPizza, setSelectedPizza] = useState(null);
-    const [selectedSize, setSelectedSize] = useState('small'); // Initialize with 'small'
+    const [selectedSize, setSelectedSize] = useState('small'); 
 
     const basePrice = {
         small: 16.75,
@@ -18,14 +18,14 @@ function Classics({ addToCart }) {
     };
 
     const calculatePrice = (name, size) => {
-        // Calculate the price based on the pizza's name and size
+       
         return basePrice[size];
     };
 
     const handleAddToCart = (item, size) => {
         const pizzaNameWithSize = `${size.charAt(0).toUpperCase() + size.slice(1)} ${item.name}`;
-        const price = calculatePrice(pizzaNameWithSize, size); // Calculate the price
-        addItemToCart(addToCart, setAlertMessage, { ...item, name: pizzaNameWithSize, price }); // Pass the item with modified name and calculated price
+        const price = calculatePrice(pizzaNameWithSize, size); 
+        addItemToCart(addToCart, setAlertMessage, { ...item, name: pizzaNameWithSize, price }); 
         closeModal();
     };
 
@@ -65,7 +65,7 @@ function Classics({ addToCart }) {
     const openModal = (pizza) => {
         setSelectedPizza(pizza);
         setShowModal(true);
-        setSelectedSize('small'); // Reset selected size when opening the modal
+        setSelectedSize('small'); 
     };
 
     const closeModal = () => {
