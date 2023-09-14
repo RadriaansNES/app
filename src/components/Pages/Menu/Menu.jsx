@@ -1,5 +1,6 @@
 import React from 'react';
 import Layout from '../../LayoutComp/Layout';
+import { connect } from 'react-redux';
 
 function Menu() {
   return (
@@ -60,4 +61,8 @@ function Menu() {
   );
 }
 
-export default Menu;
+const mapStateToProps = (state) => ({
+  cartItems: state.cart.cartItems,
+});
+
+export default connect(mapStateToProps)(Menu);

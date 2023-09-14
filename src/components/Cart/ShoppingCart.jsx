@@ -1,9 +1,17 @@
-import React from 'react';
+// ShoppingCart.jsx
+import React, { useEffect } from 'react';
 import { connect } from 'react-redux';
 import { removeFromCart } from '../../redux/actions';
 import Layout from '../LayoutComp/Layout';
 
 function ShoppingCart({ cartItems, removeFromCart }) {
+  useEffect(() => {
+    // Ensure the cartItems in session storage and the Redux store are in sync
+    if (JSON.stringify(cartItems) !== sessionStorage.getItem('cartItems')) {
+      sessionStorage.setItem('cartItems', JSON.stringify(cartItems));
+    }
+  }, [cartItems]);
+
   return (
     <Layout>
       <div className='menu'>
@@ -25,23 +33,23 @@ function ShoppingCart({ cartItems, removeFromCart }) {
 // Extracted CartItemList component
 function CartItemList({ cartItems, removeFromCart }) {
   return (
-    <ul>
+    <div className="checkout-items">
       {cartItems.map((item) => (
         <CartItem key={item.id} item={item} removeFromCart={removeFromCart} />
       ))}
-    </ul>
+    </div>
   );
 }
 
 // Extracted CartItem component
 function CartItem({ item, removeFromCart }) {
   return (
-    <li>
+    <div className="checkout-item">
       <span>{item.name}</span>
       <span>Quantity: {item.quantity}</span>
       <span>Price: ${item.price.toFixed(2)}</span>
       <button onClick={() => removeFromCart(item.id)}>Remove</button>
-    </li>
+    </div>
   );
 }
 
