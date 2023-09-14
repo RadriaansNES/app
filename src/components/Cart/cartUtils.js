@@ -7,6 +7,5 @@ export const addItemToCart = (addToCart, setAlertMessage, combo) => {
       price: combo.price,
     });
   
-    // Set the alert message with the dynamic text
     setAlertMessage(`${combo.name} successfully added to cart!`);
   };
