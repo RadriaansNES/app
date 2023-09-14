@@ -1,7 +1,9 @@
 import React, { useState, useEffect, useMemo } from 'react';
 import Layout from '../../LayoutComp/Layout';
+import { connect } from 'react-redux';
+import { addToCart } from '../../../redux/actions';
 
-function BYOPizza() {
+function BYOPizza({ addToCart }) {
   const [selectedSize, setSelectedSize] = useState('');
   const [selectedMeats, setSelectedMeats] = useState([]);
   const [selectedCheeses, setSelectedCheeses] = useState([]);
@@ -85,6 +87,19 @@ function BYOPizza() {
         ? prevFruitVegetables.filter((item) => item !== fruitVegetable)
         : [...prevFruitVegetables, fruitVegetable]
     );
+  };
+
+  const handleAddToCart = () => {
+    // Create the custom pizza object with a default quantity of 1
+    const customPizza = {
+      name: `Custom ${selectedSize} Pizza`,
+      description: `Toppings: ${[...selectedMeats, ...selectedCheeses, ...selectedFruitVegetables].join(', ')}`,
+      price: totalPrice,
+      quantity: 1, // Default quantity is 1
+    };
+  
+    // Add the custom pizza to the cart
+    addToCart(customPizza);
   };
 
   return (
@@ -195,8 +210,8 @@ function BYOPizza() {
             </div>
           </div>
           <div className='SelectionF'>
-            <p><strong>Total is ${totalPrice.toFixed(2)}</strong></p>
-            <button id='checkB'>Add to Cart</button>
+            <p><strong>Total is ${totalPrice}</strong></p>
+            <button id='checkB' onClick={handleAddToCart}>Add to Cart</button>
           </div>
         </div>
       </form>
@@ -204,4 +219,4 @@ function BYOPizza() {
   );
 }
 
-export default BYOPizza;
+export default connect(null, { addToCart })(BYOPizza);
