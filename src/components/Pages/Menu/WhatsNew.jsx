@@ -1,12 +1,17 @@
 import React, { useState } from 'react';
 import { connect } from 'react-redux';
-import { addToCart } from '../../../redux/actions'; // Import the addToCart action
+
 import Layout from '../../LayoutComp/Layout';
-import Alert from '../../Cart/Alert'; // Import the Alert component
+
+import { addToCart } from '../../../redux/actions';
+import { addItemToCart } from '../../Cart/cartUtils';
 
 function WhatsNew({ addToCart }) {
   const [alertMessage, setAlertMessage] = useState('');
   
+  const handleAddToCart = (combo) => {
+    addItemToCart(addToCart, setAlertMessage, combo);
+  };
 
   const combos = [
     {
@@ -97,29 +102,13 @@ function WhatsNew({ addToCart }) {
     },
   ];
 
-  // Function to add a combo to the cart
-  const handleAddToCart = (combo) => {
-    addToCart({
-      id: combo.id,
-      name: combo.name,
-      quantity: 1,
-      price: combo.price,
-    });
-
-    // Set the alert message
-    setAlertMessage('Item successfully added to cart');
-  };
-
   return (
-    <Layout>
+    <Layout alertMessage={alertMessage} setAlertMessage={setAlertMessage}>
       <div className='header'>
         <h1>
           <button>START YOUR ORDER</button></h1>
       </div>
       <div className='main'>
-      {alertMessage && (
-          <Alert message={alertMessage} onClose={() => setAlertMessage('')} />
-        )}
         <div className='mainCombo' onClick={() => handleAddToCart(combos[0])}>
           <p className='maininfo'>2 Medium Pizzas<br />6 Toppings combined</p>
           <p className='mainprice'>Only<br /><span>$26.99</span><em><br />+tax</em></p>
