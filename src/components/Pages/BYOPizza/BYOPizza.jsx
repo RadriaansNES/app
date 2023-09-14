@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect, useMemo } from 'react';
 import Layout from '../../LayoutComp/Layout';
 
 function BYOPizza() {
@@ -6,6 +6,55 @@ function BYOPizza() {
   const [selectedMeats, setSelectedMeats] = useState([]);
   const [selectedCheeses, setSelectedCheeses] = useState([]);
   const [selectedFruitVegetables, setSelectedFruitVegetables] = useState([]);
+  const [totalPrice, setTotalPrice] = useState(0);
+
+  // Define the base prices and extra topping rates using useMemo
+  const basePrices = useMemo(
+    () => ({
+      Small: 9.0,
+      Medium: 11.5,
+      Large: 14.0,
+      'Extra-Large': 18.0,
+    }),
+    []
+  );
+
+  const extraToppingRates = useMemo(
+    () => ({
+      Small: 1.5,
+      Medium: 2.0,
+      Large: 2.5,
+      'Extra-Large': 2.75,
+    }),
+    []
+  );
+
+  useEffect(() => {
+    // Calculate the total price based on the selected size and toppings
+    let pizzaPrice = basePrices[selectedSize] || 0;
+
+    // Calculate the number of selected toppings
+    let toppingQuantity =
+      selectedMeats.length + selectedCheeses.length + selectedFruitVegetables.length;
+
+    // Handle special cases for "Extra Sauce" and "Chicken"
+    selectedMeats.forEach((meat) => {
+      if (meat === 'Chicken') {
+        toppingQuantity++; // Count "Chicken" as an extra topping
+      }
+    });
+
+    // Check for "Extra Sauce" and exclude it from the calculation
+    if (selectedFruitVegetables.includes('Extra Sauce (free)')) {
+      toppingQuantity--; // Exclude "Extra Sauce" from topping count
+    }
+
+    // Calculate the total price with adjusted topping quantity and rate
+    pizzaPrice += toppingQuantity * (extraToppingRates[selectedSize] || 0);
+
+    // Update the total price
+    setTotalPrice(pizzaPrice);
+  }, [selectedSize, selectedMeats, selectedCheeses, selectedFruitVegetables, basePrices, extraToppingRates]);
 
   const handleSizeChange = (e) => {
     setSelectedSize(e.target.value);
@@ -130,7 +179,7 @@ function BYOPizza() {
                 'Tomatoes',
                 'Roasted Red Peppers',
                 'Jalapeno Peppers',
-                'Extra Sauce (free)',
+                'Extra Sauce (free)', // Note: "Extra Sauce" is listed here
               ].map((fruitVegetable) => (
                 <label key={fruitVegetable}>
                   <input
@@ -146,7 +195,7 @@ function BYOPizza() {
             </div>
           </div>
           <div className='SelectionF'>
-            <p><strong>Total is $X</strong></p>
+            <p><strong>Total is ${totalPrice.toFixed(2)}</strong></p>
             <button id='checkB'>Add to Cart</button>
           </div>
         </div>
