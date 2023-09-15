@@ -3,8 +3,10 @@ import { connect } from 'react-redux';
 import { addToCart } from '../../../redux/actions';
 import Layout from '../../LayoutComp/Layout';
 import { useParams } from 'react-router-dom';
+import { useNavigate } from 'react-router-dom';
 
 function ComboCustomization({ addToCart }) {
+    const navigate = useNavigate();
     const { id } = useParams();
     const [combo, setCombo] = useState(null);
     const [currentPizza, setCurrentPizza] = useState(1);
@@ -174,7 +176,7 @@ function ComboCustomization({ addToCart }) {
     };
 
     const handleAddToCart = (e) => {
-        e.preventDefault(); // Prevent the default form submission behavior
+        e.preventDefault();
     
         const selectedToppings = [...selectedMeats, ...selectedCheeses, ...selectedFruitVegetables];
     
@@ -206,6 +208,11 @@ function ComboCustomization({ addToCart }) {
             setPizzaOneToppings([]);
             setCurrentPizza(1);
             setAlertMessage('Combo added to cart');
+    
+            // Check if it's the last pizza in the combo and navigate to the cart
+            if (combo.id !== null /* Add a condition to check if it's the last pizza */) {
+                navigate('/Checkout'); // Redirect to the cart page
+            }
         }
     };
     
