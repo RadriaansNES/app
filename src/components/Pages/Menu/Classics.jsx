@@ -11,10 +11,10 @@ function Classics({ addToCart }) {
     const [selectedSize, setSelectedSize] = useState('small'); 
 
     const basePrice = {
-        small: 16.75,
-        medium: 20.00,
-        large: 25.00,
-        'extra-large': 31.50,
+        small: 13.75,
+        medium: 18.25,
+        large: 23.00,
+        'extra-large': 29.00,
     };
 
     const calculatePrice = (name, size) => {

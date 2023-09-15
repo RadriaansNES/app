@@ -71,7 +71,7 @@ function CartItem({ item, removeFromCart }) {
         <button onClick={() => removeFromCart(item.id)}>Remove</button>
       </div>
       <div className="cell-e r">
-        <p><strong>${item.price.toFixed(2) * item.quantity}</strong></p>
+        <p><strong>${item.price * item.quantity}</strong></p>
       </div>
       <div className="cell-n">
         <p>{}</p>

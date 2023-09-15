@@ -14,6 +14,8 @@ import { Provider } from 'react-redux';
 import rootReducer from './redux/reducers';
 import ShoppingCart from './components/Cart/ShoppingCart';
 import ComboCustomization from './components/Pages/BYOPizza/Combos';
+import Specialties from './components/Pages/Menu/Specialties';
+import SuperSpecialties from './components/Pages/Menu/SuperSpecialties';
 
 const store = createStore(rootReducer);
 
@@ -27,6 +29,8 @@ function App() {
           <Route path="/Menu" element={<Menu />} />
           <Route path="/BYOPizza" element={<BYOPizza />} />
           <Route path="/ClassicPizzas" element={<Classics />} />
+          <Route path="/Specialties" element={<Specialties />} />
+          <Route path="/SuperSpecialties" element={<SuperSpecialties />} />
           <Route path="/SideOrders" element={<SideOrders />} />
           <Route path="/Beverages" element={<Beverages />} />
           <Route path="/DeliveryMap" element={<DeliveryMap />} />

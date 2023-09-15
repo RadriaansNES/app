@@ -36,6 +36,7 @@ a {
 
 /* navbar */
 
+
 #headerLogo {
   padding-top: 10px;
   height: 120px;
@@ -50,6 +51,8 @@ nav {
   justify-content: space-between !important;
   align-items: end !important;
   background-color: #8cc63f;
+  margin-left: 0;
+  margin-right: 0;
 }
 
 .navbar-brand {
@@ -365,6 +368,10 @@ h2 {
 
 .checkout-item .r p {
   text-align: right;
+}
+
+#SS {
+  height: auto;
 }
 
 /* Specific styles for each grid cell */
