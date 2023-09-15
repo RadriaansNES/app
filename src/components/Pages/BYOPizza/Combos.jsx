@@ -16,7 +16,7 @@ function ComboCustomization({ addToCart }) {
     const [alertMessage, setAlertMessage] = useState('');
     const [addToCartClicked, setAddToCartClicked] = useState(false);
     const [pizzaOneToppings, setPizzaOneToppings] = useState([]);
-    const [pizzaTwoToppings, setPizzaTwoToppings] = useState([]);
+
 
     const combos = [
         {
@@ -110,7 +110,7 @@ function ComboCustomization({ addToCart }) {
                     6 Toppings combined
                 </div>
             ),
-            price: 21.99,
+            price: 33.99,
         },
     ];
 

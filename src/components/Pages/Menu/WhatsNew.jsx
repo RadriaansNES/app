@@ -105,7 +105,7 @@ function WhatsNew({ addToCart }) {
           6 Toppings combined
         </div>
       ),
-      price: 21.99,
+      price: 33.99,
     },
   ];
 
