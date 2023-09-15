@@ -277,7 +277,7 @@ function ComboCustomization({ addToCart }) {
         // Calculate the total price considering the combo price and extra toppings cost
         const totalPrice = baseComboPrice + extraToppingsCost + (chickenCount * extraToppingsCostPerCombo);
       
-        return totalPrice;
+        return totalPrice.toFixed(2);
       };
       
       
