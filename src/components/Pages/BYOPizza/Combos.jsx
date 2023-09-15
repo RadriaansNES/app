@@ -177,45 +177,52 @@ function ComboCustomization({ addToCart }) {
 
     const handleAddToCart = (e) => {
         e.preventDefault();
-    
+
         const selectedToppings = [...selectedMeats, ...selectedCheeses, ...selectedFruitVegetables];
-    
+
         if (currentPizza === 1) {
             setPizzaOneToppings(selectedToppings);
             setCurrentPizza(2);
             setAlertMessage('Pizza One added to cart');
-    
+
             // Scroll back to the top of the page
             window.scrollTo({ top: 0, behavior: 'smooth' });
-    
+
             // Clear the selected checkboxes
             setSelectedMeats([]);
             setSelectedCheeses([]);
             setSelectedFruitVegetables([]);
+            if ([2, 3, 4, 5].includes(combo.id)) {
+                const comboDescription = `Pizza toppings: ${selectedToppings.join(', ')}`;
+                const comboPizza = {
+                    name: `${combo.name}`,
+                    description: comboDescription,
+                    price: calculatePizzaPrice([...pizzaOneToppings, ...selectedToppings]),
+                    quantity: 1,
+                };
+                addToCart(comboPizza);
+                navigate('/Checkout'); // Redirect to the cart page
+            }
         } else {
             // Pizza Two customization is complete; add the combo to cart
-            const comboDescription = `Pizza 1 toppings: ${pizzaOneToppings.join(', ')} , Pizza 2 toppings: ${selectedToppings.join(', ')}`;
+            const comboDescription = `Pizza 1 toppings: ${pizzaOneToppings.join(', ')}. Pizza 2 toppings: ${selectedToppings.join(', ')}`;
             const comboPizza = {
                 name: `${combo.name}`,
                 description: comboDescription,
                 price: calculatePizzaPrice([...pizzaOneToppings, ...selectedToppings]),
                 quantity: 1,
             };
-    
+
             addToCart(comboPizza);
-    
+
             // Reset the customization for the next combo
             setPizzaOneToppings([]);
             setCurrentPizza(1);
             setAlertMessage('Combo added to cart');
-    
-            // Check if it's the last pizza in the combo and navigate to the cart
-            if (combo.id !== null /* Add a condition to check if it's the last pizza */) {
-                navigate('/Checkout'); // Redirect to the cart page
-            }
+            navigate('/Checkout');
         }
     };
-    
+
 
     const calculatePizzaPrice = (selectedToppings) => {
         if (!combo) return 0;
