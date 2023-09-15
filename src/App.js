@@ -16,6 +16,8 @@ import ShoppingCart from './components/Cart/ShoppingCart';
 import ComboCustomization from './components/Pages/BYOPizza/Combos';
 import Specialties from './components/Pages/Menu/Specialties';
 import SuperSpecialties from './components/Pages/Menu/SuperSpecialties';
+import Subs from './components/Pages/Menu/Subs';
+import Salads from './components/Pages/Menu/Salads';
 
 const store = createStore(rootReducer);
 
@@ -31,7 +33,9 @@ function App() {
           <Route path="/ClassicPizzas" element={<Classics />} />
           <Route path="/Specialties" element={<Specialties />} />
           <Route path="/SuperSpecialties" element={<SuperSpecialties />} />
-          <Route path="/SideOrders" element={<SideOrders />} />
+          <Route path="/Subs" element={<Subs />} />
+          <Route path="/Salads" element={<Salads />} />
+          <Route path="/Sides" element={<SideOrders />} />
           <Route path="/Beverages" element={<Beverages />} />
           <Route path="/DeliveryMap" element={<DeliveryMap />} />
           <Route path="/checkout" element={<ShoppingCart />} />
