@@ -10,3 +10,10 @@ export const removeFromCart = (itemId) => ({
   type: REMOVE_FROM_CART,
   payload: itemId,
 });
+
+export const SET_COMBO_DETAILS = 'SET_COMBO_DETAILS';
+
+export const setComboDetails = (comboId) => ({
+  type: SET_COMBO_DETAILS,
+  payload: comboId,
+});

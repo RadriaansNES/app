@@ -1,16 +1,18 @@
 import React, { useState } from 'react';
 import { connect } from 'react-redux';
+import { useNavigate } from 'react-router-dom';
 
 import Layout from '../../LayoutComp/Layout';
-
 import { addToCart } from '../../../redux/actions';
-import { addItemToCart } from '../../Cart/cartUtils';
+
 
 function WhatsNew({ addToCart }) {
-  const [alertMessage, setAlertMessage] = useState('');
-  
-  const handleAddToCart = (combo) => {
-    addItemToCart(addToCart, setAlertMessage, combo);
+  const [alertMessage, setAlertMessage] = useState();
+  const navigate = useNavigate(); // Use the useNavigate hook for navigation
+
+  const handleCustomizeCombo = (combo) => {
+    // Use the navigate function to navigate to the ComboCustomization component
+    navigate(`/customize-combo?c=${combo.id}`);
   };
 
   const combos = [
@@ -113,19 +115,24 @@ function WhatsNew({ addToCart }) {
     <Layout alertMessage={alertMessage} setAlertMessage={setAlertMessage}>
       <div className='header'>
         <h1>
-          <button>START YOUR ORDER</button></h1>
+          <button>START YOUR ORDER</button>
+        </h1>
       </div>
       <div className='main'>
         <div className='mainCombo'>
-          <p className='maininfo' onClick={() => handleAddToCart(combos[0])}>2 Medium Pizzas<br />6 Toppings combined</p>
-          <p className='mainprice' onClick={() => handleAddToCart(combos[0])}>Only<br /><span>$26.99</span><em><br />+tax</em></p>
+          <p className='maininfo' onClick={() => handleCustomizeCombo(combos[0])}>
+            2 Medium Pizzas<br />6 Toppings combined
+          </p>
+          <p className='mainprice' onClick={() => handleCustomizeCombo(combos[0])}>
+            Only<br /><span>$26.99</span><em><br />+tax</em>
+          </p>
         </div>
         <div className='combos'>
           {combos.slice(1).map((combo) => (
             <div
               className='combocell'
               key={combo.id}
-              onClick={() => handleAddToCart(combo)}
+              onClick={() => handleCustomizeCombo(combo)}
             >
               <h4>{combo.name}</h4>
               <p>{combo.description}</p>
