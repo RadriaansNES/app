@@ -384,7 +384,7 @@ function ComboCustomization({ addToCart }) {
 
                     {/* Remove the pizza size selection */}
                     <div className='SelectionF'>
-                        <p><strong>Total is ${calculatePizzaPrice([...selectedMeats, ...selectedCheeses, ...selectedFruitVegetables])}</strong></p>
+                        <p><strong>Total is ${calculatePizzaPrice([... pizzaOneToppings,...selectedMeats, ...selectedCheeses, ...selectedFruitVegetables])}</strong></p>
                         <button id='checkB' onClick={handleAddToCart}>
                             {currentPizza === 1 ? 'Add Pizza One to Cart' : 'Add Pizza Two to Cart'}
                         </button>
