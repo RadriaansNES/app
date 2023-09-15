@@ -226,33 +226,45 @@ function ComboCustomization({ addToCart }) {
 
     const calculatePizzaPrice = (selectedToppings) => {
         if (!combo) return 0;
-
+      
         const baseComboPrice = combo.price;
-
+      
         // Define topping limits for each combo
         const comboToppingLimits = {
-            0: 6,  // Combo 0 - 6 toppings allowed
-            1: 6,  // Combo 1 - 6 toppings allowed
-            2: 3,  // Combo 2 - 3 toppings allowed
-            3: 1,  // Combo 3 - 1 topping allowed
-            4: 3,  // Combo 4 - 3 toppings allowed
-            5: 3,  // Combo 5 - 3 toppings allowed
-            6: 6   // Combo 6 - 6 toppings allowed
+          0: 6,  // Combo 0 - 6 toppings allowed
+          1: 6,  // Combo 1 - 6 toppings allowed
+          2: 3,  // Combo 2 - 3 toppings allowed
+          3: 1,  // Combo 3 - 1 topping allowed
+          4: 3,  // Combo 4 - 3 toppings allowed
+          5: 3,  // Combo 5 - 3 toppings allowed
+          6: 6   // Combo 6 - 6 toppings allowed
         };
-
-        const additionalToppingsCostPerCombo = 2.5; // Cost for additional toppings per combo
-
+      
+        // Define additional topping costs for each combo
+        const comboAdditionalToppingsCosts = {
+          0: 2.0,  // Combo 0 - $2.00 per extra topping
+          1: 1.5,  // Combo 1 - $1.50 per extra topping
+          2: 2.0,  // Combo 2 - $2.50 per extra topping
+          3: 2.5,  // Combo 3 - $2.50 per extra topping
+          4: 2.5,  // Combo 4 - $2.50 per extra topping
+          5: 2.75, // Combo 5 - $2.75 per extra topping
+          6: 2.5   // Combo 6 - $2.50 per extra topping
+        };
+      
         const toppingLimit = comboToppingLimits[combo.id];
         const extraToppings = Math.max(0, selectedToppings.length - toppingLimit);
-
+      
+        // Get the additional topping cost based on the combo
+        const additionalToppingsCostPerCombo = comboAdditionalToppingsCosts[combo.id];
+      
         // Calculate the additional cost for extra toppings
         const extraToppingsCost = extraToppings * additionalToppingsCostPerCombo;
-
+      
         // Calculate the total price considering the combo price and extra toppings cost
         const totalPrice = baseComboPrice + extraToppingsCost;
-
+      
         return totalPrice;
-    };
+      };
 
     return (
         <Layout alertMessage={alertMessage} setAlertMessage={setAlertMessage}>
