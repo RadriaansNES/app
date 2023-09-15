@@ -1,9 +1,16 @@
 export const ADD_TO_CART = 'ADD_TO_CART';
 export const REMOVE_FROM_CART = 'REMOVE_FROM_CART';
 
+const generateUniqueID = () => {
+  return Math.floor(Math.random() * 10000); // Generate a random 4-digit number
+};
+
 export const addToCart = (item) => ({
   type: ADD_TO_CART,
-  payload: item,
+  payload: {
+    ...item,
+    id: generateUniqueID(),
+  },
 });
 
 export const removeFromCart = (itemId) => ({
@@ -11,9 +18,3 @@ export const removeFromCart = (itemId) => ({
   payload: itemId,
 });
 
-export const SET_COMBO_DETAILS = 'SET_COMBO_DETAILS';
-
-export const setComboDetails = (comboId) => ({
-  type: SET_COMBO_DETAILS,
-  payload: comboId,
-});

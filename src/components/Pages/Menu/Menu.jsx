@@ -14,10 +14,10 @@ function Menu() {
             <h3>Build Your Own Pizza</h3>
           </div>
           <div className='BYOP-Sizes'>
-            <a href='/BYOPizza?s=1'>Small (11")</a>
-            <a href='/BYOPizza?s=2'>Medium (13")</a>
-            <a href='/BYOPizza?s=3'>Large (15")</a>
-            <a href='/BYOPizza?s=4'>Extra Large (18")</a>
+            <a href='/BYOPizza'>Small (11")</a>
+            <a href='/BYOPizza'>Medium (13")</a>
+            <a href='/BYOPizza'>Large (15")</a>
+            <a href='/BYOPizza'>Extra Large (18")</a>
           </div>
         </div>
         <div className='Types'>
@@ -28,32 +28,40 @@ function Menu() {
             </a>
           </div>
           <div>
-            <h2>Specialties</h2>
-            <p>Spec. img. </p>
+            <a href='/Specialties'>
+              <h2>Specialties</h2>
+              <p>Spec. img. </p>
+            </a>
           </div>
           <div>
-            <h2>Super Specialties</h2>
-            <p>Super spec. img. </p>
+            <a href='/SuperSpecialties'>
+              <h2>Super Specialties</h2>
+              <p>Super spec. img. </p>
+            </a>
           </div>
           <div>
-            <h2>Subs</h2>
-            <p>Subs img. </p>
-
+            <a href='/Subs'>
+              <h2>Subs</h2>
+              <p>Subs img. </p>
+            </a>
           </div>
           <div>
-            <h2>Salads</h2>
-            <p>Salad img. </p>
-
+            <a href='/Salads'>
+              <h2>Salads</h2>
+              <p>Salad img. </p>
+            </a>
           </div>
           <div>
-            <h2>Sides</h2>
-            <p>Sides img. </p>
-
+            <a href='/Sides'>
+              <h2>Sides</h2>
+              <p>Sides img. </p>
+            </a>
           </div>
           <div>
-            <h2>Beverages</h2>
-            <p>Bev img. </p>
-
+            <a href='/Beverages'>
+              <h2>Beverages</h2>
+              <p>Bev img. </p>
+            </a>
           </div>
         </div>
       </div>

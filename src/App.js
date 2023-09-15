@@ -13,7 +13,13 @@ import { createStore } from 'redux';
 import { Provider } from 'react-redux';
 import rootReducer from './redux/reducers';
 import ShoppingCart from './components/Cart/ShoppingCart';
-import ComboCustomization from './components/Pages/BYOPizza/ComboCustomization';
+
+import ComboCustomization from './components/Pages/BYOPizza/Combos';
+import Specialties from './components/Pages/Menu/Specialties';
+import SuperSpecialties from './components/Pages/Menu/SuperSpecialties';
+import Subs from './components/Pages/Menu/Subs';
+import Salads from './components/Pages/Menu/Salads';
+
 
 const store = createStore(rootReducer);
 
@@ -27,11 +33,17 @@ function App() {
           <Route path="/Menu" element={<Menu />} />
           <Route path="/BYOPizza" element={<BYOPizza />} />
           <Route path="/ClassicPizzas" element={<Classics />} />
-          <Route path="/SideOrders" element={<SideOrders />} />
+          <Route path="/Specialties" element={<Specialties />} />
+          <Route path="/SuperSpecialties" element={<SuperSpecialties />} />
+          <Route path="/Subs" element={<Subs />} />
+          <Route path="/Salads" element={<Salads />} />
+          <Route path="/Sides" element={<SideOrders />} />
           <Route path="/Beverages" element={<Beverages />} />
           <Route path="/DeliveryMap" element={<DeliveryMap />} />
           <Route path="/checkout" element={<ShoppingCart />} />
-          <Route path="/customize-combo" element={<ComboCustomization />} />
+
+          <Route path="/combo/:id" element={<ComboCustomization />} />
+
         </Routes>
       </Router>
     </Provider>

@@ -1,19 +1,16 @@
 import React, { useState } from 'react';
 import { connect } from 'react-redux';
-import { useNavigate } from 'react-router-dom';
+
+import { Link, useNavigate } from 'react-router-dom';
 
 import Layout from '../../LayoutComp/Layout';
 import { addToCart } from '../../../redux/actions';
 
 
 function WhatsNew({ addToCart }) {
-  const [alertMessage, setAlertMessage] = useState();
-  const navigate = useNavigate(); // Use the useNavigate hook for navigation
+  const navigate = useNavigate();
+  const [alertMessage, setAlertMessage] = useState('');
 
-  const handleCustomizeCombo = (combo) => {
-    // Use the navigate function to navigate to the ComboCustomization component
-    navigate(`/customize-combo?c=${combo.id}`);
-  };
 
   const combos = [
     {
@@ -48,7 +45,7 @@ function WhatsNew({ addToCart }) {
       cdescrip: '1 Medium classic pizza',
       description: (
         <div>
-          1 Medium Classic Pizza
+          1 Medium <br /> Classic Pizza
         </div>
       ),
       price: 17.49,
@@ -107,9 +104,15 @@ function WhatsNew({ addToCart }) {
           6 Toppings combined
         </div>
       ),
-      price: 21.99,
+      price: 33.99,
     },
   ];
+
+  // Function to scroll to the top of the page and navigate
+  const scrollToTopAndNavigate = (url) => {
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+    navigate(url);
+  };
 
   return (
     <Layout alertMessage={alertMessage} setAlertMessage={setAlertMessage}>
@@ -120,23 +123,29 @@ function WhatsNew({ addToCart }) {
       </div>
       <div className='main'>
         <div className='mainCombo'>
-          <p className='maininfo' onClick={() => handleCustomizeCombo(combos[0])}>
-            2 Medium Pizzas<br />6 Toppings combined
-          </p>
-          <p className='mainprice' onClick={() => handleCustomizeCombo(combos[0])}>
-            Only<br /><span>$26.99</span><em><br />+tax</em>
-          </p>
+
+          <p className='maininfo' onClick={() => scrollToTopAndNavigate('/combo/0')}>2 Medium Pizzas<br />6 Toppings combined</p>
+          <p className='mainprice' onClick={() => scrollToTopAndNavigate('/combo/0')}>Only<br /><span>$26.99</span><em><br />+tax</em></p>
+
         </div>
         <div className='combos'>
           {combos.slice(1).map((combo) => (
             <div
               className='combocell'
               key={combo.id}
-              onClick={() => handleCustomizeCombo(combo)}
+
             >
-              <h4>{combo.name}</h4>
-              <p>{combo.description}</p>
-              <p className='price'>${combo.price.toFixed(2)}</p>
+              <Link
+                to={`/combo/${combo.id}`}
+                onClick={(e) => {
+                  e.preventDefault(); // Prevent the default link behavior
+                  scrollToTopAndNavigate(`/combo/${combo.id}`);
+                }}
+              >
+                <h4>{combo.name}</h4>
+                <p>{combo.description}</p>
+                <p className='price'>${combo.price.toFixed(2)}</p>
+              </Link>
             </div>
           ))}
         </div>
