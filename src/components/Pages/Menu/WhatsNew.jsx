@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { connect } from 'react-redux';
-
+import { Link } from 'react-router-dom';
 import Layout from '../../LayoutComp/Layout';
 
 import { addToCart } from '../../../redux/actions';
@@ -8,7 +8,7 @@ import { addItemToCart } from '../../Cart/cartUtils';
 
 function WhatsNew({ addToCart }) {
   const [alertMessage, setAlertMessage] = useState('');
-  
+
   const handleAddToCart = (combo) => {
     addItemToCart(addToCart, setAlertMessage, combo);
   };
@@ -46,7 +46,7 @@ function WhatsNew({ addToCart }) {
       cdescrip: '1 Medium classic pizza',
       description: (
         <div>
-          1 Medium Classic Pizza
+          1 Medium <br/> Classic Pizza
         </div>
       ),
       price: 17.49,
@@ -125,11 +125,12 @@ function WhatsNew({ addToCart }) {
             <div
               className='combocell'
               key={combo.id}
-              onClick={() => handleAddToCart(combo)}
             >
-              <h4>{combo.name}</h4>
-              <p>{combo.description}</p>
-              <p className='price'>${combo.price.toFixed(2)}</p>
+              <Link to={`/combo/${combo.id}`}> {/* Add this Link component */}
+                <h4>{combo.name}</h4>
+                <p>{combo.description}</p>
+                <p className='price'>${combo.price.toFixed(2)}</p>
+              </Link>
             </div>
           ))}
         </div>
