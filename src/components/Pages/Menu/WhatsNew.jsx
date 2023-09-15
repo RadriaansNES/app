@@ -1,17 +1,13 @@
 import React, { useState } from 'react';
 import { connect } from 'react-redux';
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 import Layout from '../../LayoutComp/Layout';
 
 import { addToCart } from '../../../redux/actions';
-import { addItemToCart } from '../../Cart/cartUtils';
 
 function WhatsNew({ addToCart }) {
+  const navigate = useNavigate();
   const [alertMessage, setAlertMessage] = useState('');
-
-  const handleAddToCart = (combo) => {
-    addItemToCart(addToCart, setAlertMessage, combo);
-  };
 
   const combos = [
     {
@@ -117,8 +113,8 @@ function WhatsNew({ addToCart }) {
       </div>
       <div className='main'>
         <div className='mainCombo'>
-          <p className='maininfo' onClick={() => handleAddToCart(combos[0])}>2 Medium Pizzas<br />6 Toppings combined</p>
-          <p className='mainprice' onClick={() => handleAddToCart(combos[0])}>Only<br /><span>$26.99</span><em><br />+tax</em></p>
+          <p className='maininfo' onClick={() => navigate('/combo/0')}>2 Medium Pizzas<br />6 Toppings combined</p>
+          <p className='mainprice' onClick={() => navigate('/combo/0')}>Only<br /><span>$26.99</span><em><br />+tax</em></p>
         </div>
         <div className='combos'>
           {combos.slice(1).map((combo) => (
