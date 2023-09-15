@@ -240,6 +240,9 @@ function ComboCustomization({ addToCart }) {
           6: 6   // Combo 6 - 6 toppings allowed
         };
       
+        // Retrieve the topping limit for the current combo from the object
+        const toppingLimit = comboToppingLimits[combo.id];
+      
         // Define additional topping costs for each combo
         const comboAdditionalToppingsCosts = {
           0: 2.0,  // Combo 0 - $2.00 per extra topping
@@ -251,20 +254,34 @@ function ComboCustomization({ addToCart }) {
           6: 2.5   // Combo 6 - $2.50 per extra topping
         };
       
-        const toppingLimit = comboToppingLimits[combo.id];
-        const extraToppings = Math.max(0, selectedToppings.length - toppingLimit);
+        // Adjust topping limit and cost for "Extra Sauce"
+        const extraSauceTopping = 'Extra Sauce (free)';
+        const chickenTopping = 'Chicken';
       
-        // Get the additional topping cost based on the combo
-        const additionalToppingsCostPerCombo = comboAdditionalToppingsCosts[combo.id];
+        // Exclude "Extra Sauce" from affecting topping limit and cost
+        if (selectedToppings.includes(extraSauceTopping)) {
+          const extraSauceIndex = selectedToppings.indexOf(extraSauceTopping);
+          selectedToppings.splice(extraSauceIndex, 1); // Remove "Extra Sauce"
+        }
       
-        // Calculate the additional cost for extra toppings
-        const extraToppingsCost = extraToppings * additionalToppingsCostPerCombo;
+        // Count "Chicken" as two toppings based on topping limit
+        const chickenCount = Math.min(selectedToppings.filter(topping => topping === chickenTopping).length * 2, toppingLimit);
+      
+        // Calculate the count of all other toppings
+        const otherToppingsCount = selectedToppings.filter(topping => topping !== chickenTopping).length;
+      
+        const extraToppingsCostPerCombo = comboAdditionalToppingsCosts[combo.id];
+        const extraToppingsCount = Math.max(0, otherToppingsCount - toppingLimit);
+        const extraToppingsCost = extraToppingsCount * extraToppingsCostPerCombo;
       
         // Calculate the total price considering the combo price and extra toppings cost
-        const totalPrice = baseComboPrice + extraToppingsCost;
+        const totalPrice = baseComboPrice + extraToppingsCost + (chickenCount * extraToppingsCostPerCombo);
       
         return totalPrice;
       };
+      
+      
+      
 
     return (
         <Layout alertMessage={alertMessage} setAlertMessage={setAlertMessage}>

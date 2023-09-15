@@ -42,7 +42,7 @@ function WhatsNew({ addToCart }) {
       cdescrip: '1 Medium classic pizza',
       description: (
         <div>
-          1 Medium <br/> Classic Pizza
+          1 Medium <br /> Classic Pizza
         </div>
       ),
       price: 17.49,
@@ -105,6 +105,12 @@ function WhatsNew({ addToCart }) {
     },
   ];
 
+  // Function to scroll to the top of the page and navigate
+  const scrollToTopAndNavigate = (url) => {
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+    navigate(url);
+  };
+
   return (
     <Layout alertMessage={alertMessage} setAlertMessage={setAlertMessage}>
       <div className='header'>
@@ -113,8 +119,8 @@ function WhatsNew({ addToCart }) {
       </div>
       <div className='main'>
         <div className='mainCombo'>
-          <p className='maininfo' onClick={() => navigate('/combo/0')}>2 Medium Pizzas<br />6 Toppings combined</p>
-          <p className='mainprice' onClick={() => navigate('/combo/0')}>Only<br /><span>$26.99</span><em><br />+tax</em></p>
+          <p className='maininfo' onClick={() => scrollToTopAndNavigate('/combo/0')}>2 Medium Pizzas<br />6 Toppings combined</p>
+          <p className='mainprice' onClick={() => scrollToTopAndNavigate('/combo/0')}>Only<br /><span>$26.99</span><em><br />+tax</em></p>
         </div>
         <div className='combos'>
           {combos.slice(1).map((combo) => (
@@ -122,7 +128,13 @@ function WhatsNew({ addToCart }) {
               className='combocell'
               key={combo.id}
             >
-              <Link to={`/combo/${combo.id}`}> {/* Add this Link component */}
+              <Link
+                to={`/combo/${combo.id}`}
+                onClick={(e) => {
+                  e.preventDefault(); // Prevent the default link behavior
+                  scrollToTopAndNavigate(`/combo/${combo.id}`);
+                }}
+              >
                 <h4>{combo.name}</h4>
                 <p>{combo.description}</p>
                 <p className='price'>${combo.price.toFixed(2)}</p>
