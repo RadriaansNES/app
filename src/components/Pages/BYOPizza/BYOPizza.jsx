@@ -9,6 +9,7 @@ function BYOPizza({ addToCart }) {
   const [selectedCheeses, setSelectedCheeses] = useState([]);
   const [selectedFruitVegetables, setSelectedFruitVegetables] = useState([]);
   const [totalPrice, setTotalPrice] = useState(0);
+  const [alertMessage, setAlertMessage] = useState('');
 
   // Define the base prices and extra topping rates using useMemo
   const basePrices = useMemo(
@@ -89,7 +90,8 @@ function BYOPizza({ addToCart }) {
     );
   };
 
-  const handleAddToCart = () => {
+  const handleAddToCart = (e) => {
+    e.preventDefault(); // Prevent page reload
     // Create the custom pizza object with a default quantity of 1
     const customPizza = {
       name: `Custom ${selectedSize} Pizza`,
@@ -100,10 +102,18 @@ function BYOPizza({ addToCart }) {
   
     // Add the custom pizza to the cart
     addToCart(customPizza);
+
+    // Set the alert message
+    setAlertMessage('Custom pizza added to cart.');
+
+    // Clear the alert message after a few seconds (e.g., 3 seconds)
+    setTimeout(() => {
+      setAlertMessage('');
+    }, 3000); // 3000 milliseconds = 3 seconds
   };
 
   return (
-    <Layout>
+    <Layout alertMessage={alertMessage} setAlertMessage={setAlertMessage}>
       <div className='header'>
         <h1>Build Your Pizza</h1>
       </div>
