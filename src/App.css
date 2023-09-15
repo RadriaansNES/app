@@ -354,7 +354,6 @@ h2 {
 .checkout-item {
   display: grid;
   grid-template-columns: repeat(4, 1fr); /* 4 columns for AABC */
-  grid-template-rows: 1fr 1fr 1fr; /* Each row has equal height */
   gap: 10px; /* Gap between cells */
   margin-bottom: 40px;
 }
