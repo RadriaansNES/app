@@ -11,7 +11,7 @@ function Subs({ addToCart }) {
     const [selectedSize, setSelectedSize] = useState('Regular'); 
 
     const basePrice = {
-        regular: 8.95,
+        Regular: 8.95,
     };
 
     const calculatePrice = (name, size) => {

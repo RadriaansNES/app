@@ -30,12 +30,52 @@ function ShoppingCart({ cartItems, removeFromCart }) {
   );
 }
 
-// Extracted CartItemList component
+function extractSizeFromName(name) {
+  const sizePattern = /(Small|Medium|Large|Extra Large)/i;
+  const match = name.match(sizePattern);
+  return match ? match[0].toLowerCase() : null;
+}
+
 function CartItemList({ cartItems, removeFromCart }) {
-  // Calculate the subtotal
-  const subtotal = cartItems.reduce((total, item) => {
+  // Create an object to keep track of the quantity of each pizza size
+  const sizeCounts = {};
+
+  // Count the number of each pizza size in the cart
+  cartItems.forEach((item) => {
+    const size = extractSizeFromName(item.name);
+    if (size) {
+      if (sizeCounts[size]) {
+        sizeCounts[size] += item.quantity;
+      } else {
+        sizeCounts[size] = item.quantity;
+      }
+    }
+  });
+
+  // Calculate the discount based on the counts
+  let discount = 0;
+
+  // Check if there are pairs of the same size pizzas and apply the corresponding discount
+  if (sizeCounts['small'] >= 2) {
+    discount += 2.0;
+  }
+  if (sizeCounts['medium'] >= 2) {
+    discount += 3.0;
+  }
+  if (sizeCounts['large'] >= 2) {
+    discount += 4.0;
+  }
+  if (sizeCounts['extra large'] >= 2) {
+    discount += 5.0;
+  }
+
+  // Calculate the subtotal without applying the discount
+  const subtotalWithoutDiscount = cartItems.reduce((total, item) => {
     return total + item.price * item.quantity;
   }, 0);
+
+  // Subtract the discount from the subtotal
+  const subtotal = subtotalWithoutDiscount - discount;
 
   return (
     <div className="checkout-items">
@@ -43,6 +83,9 @@ function CartItemList({ cartItems, removeFromCart }) {
         <CartItem key={item.id} item={item} removeFromCart={removeFromCart} />
       ))}
       <div>
+        {discount > 0 && (
+          <p>Your discount is: ${discount.toFixed(2)}</p>
+        )}
         <strong>Your subtotal is : ${subtotal.toFixed(2)}</strong>
         <br/>
         <button id='checkB'>Checkout</button>

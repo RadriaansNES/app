@@ -95,7 +95,7 @@ function BYOPizza({ addToCart }) {
     // Create the custom pizza object with a default quantity of 1
     const customPizza = {
       name: `Custom ${selectedSize} Pizza`,
-      description: `Toppings: ${[...selectedMeats, ...selectedCheeses, ...selectedFruitVegetables].join(', ')}`,
+      description: `${[...selectedMeats, ...selectedCheeses, ...selectedFruitVegetables].join(', ')}`,
       price: totalPrice,
       quantity: 1, // Default quantity is 1
     };
@@ -105,7 +105,7 @@ function BYOPizza({ addToCart }) {
 
     // Set the alert message
     setAlertMessage('Custom pizza added to cart.');
-
+    window.scrollTo({ top: 0, behavior: 'smooth' });
     // Clear the alert message after a few seconds (e.g., 3 seconds)
     setTimeout(() => {
       setAlertMessage('');
