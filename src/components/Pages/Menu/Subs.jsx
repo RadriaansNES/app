@@ -8,14 +8,13 @@ function Subs({ addToCart }) {
     const [alertMessage, setAlertMessage] = useState('');
     const [showModal, setShowModal] = useState(false);
     const [selectedPizza, setSelectedPizza] = useState(null);
-    const [selectedSize, setSelectedSize] = useState('small'); 
+    const [selectedSize, setSelectedSize] = useState('Regular'); 
 
     const basePrice = {
         regular: 8.95,
     };
 
     const calculatePrice = (name, size) => {
-       
         return 8.95;
     };
 
@@ -42,7 +41,7 @@ function Subs({ addToCart }) {
     const openModal = (pizza) => {
         setSelectedPizza(pizza);
         setShowModal(true);
-        setSelectedSize('small'); 
+        setSelectedSize('Regular'); 
     };
 
     const closeModal = () => {
