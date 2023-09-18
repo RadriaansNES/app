@@ -2,6 +2,7 @@ import React, { useState, useEffect, useMemo } from 'react';
 import Layout from '../../LayoutComp/Layout';
 import { connect } from 'react-redux';
 import { addToCart } from '../../../redux/actions';
+import { useNavigate } from 'react-router-dom';
 
 function BYOPizza({ addToCart }) {
   const [selectedSize, setSelectedSize] = useState('');
@@ -10,8 +11,8 @@ function BYOPizza({ addToCart }) {
   const [selectedFruitVegetables, setSelectedFruitVegetables] = useState([]);
   const [totalPrice, setTotalPrice] = useState(0);
   const [alertMessage, setAlertMessage] = useState('');
+  const navigate = useNavigate();
 
-  // Define the base prices and extra topping rates using useMemo
   const basePrices = useMemo(
     () => ({
       Small: 9.0,
@@ -22,6 +23,7 @@ function BYOPizza({ addToCart }) {
     []
   );
 
+  // UseMemo to cache previous pizza toppings in order to check if toppings are over limit;
   const extraToppingRates = useMemo(
     () => ({
       Small: 1.5,
@@ -33,10 +35,8 @@ function BYOPizza({ addToCart }) {
   );
 
   useEffect(() => {
-    // Calculate the total price based on the selected size and toppings
     let pizzaPrice = basePrices[selectedSize] || 0;
 
-    // Calculate the number of selected toppings
     let toppingQuantity =
       selectedMeats.length + selectedCheeses.length + selectedFruitVegetables.length;
 
@@ -67,8 +67,8 @@ function BYOPizza({ addToCart }) {
     const meat = e.target.value;
     setSelectedMeats((prevMeats) =>
       prevMeats.includes(meat)
-        ? prevMeats.filter((item) => item !== meat) // Deselect if already selected
-        : [...prevMeats, meat] // Select if not selected
+        ? prevMeats.filter((item) => item !== meat)
+        : [...prevMeats, meat]
     );
   };
 
@@ -91,25 +91,20 @@ function BYOPizza({ addToCart }) {
   };
 
   const handleAddToCart = (e) => {
-    e.preventDefault(); // Prevent page reload
-    // Create the custom pizza object with a default quantity of 1
+    e.preventDefault();
+
     const customPizza = {
       name: `Custom ${selectedSize} Pizza`,
       description: `${[...selectedMeats, ...selectedCheeses, ...selectedFruitVegetables].join(', ')}`,
       price: totalPrice,
-      quantity: 1, // Default quantity is 1
+      quantity: 1,
     };
-  
-    // Add the custom pizza to the cart
-    addToCart(customPizza);
 
-    // Set the alert message
+    addToCart(customPizza);
     setAlertMessage('Custom pizza added to cart.');
-    window.scrollTo({ top: 0, behavior: 'smooth' });
-    // Clear the alert message after a few seconds (e.g., 3 seconds)
-    setTimeout(() => {
-      setAlertMessage('');
-    }, 3000); // 3000 milliseconds = 3 seconds
+    navigate('/Checkout');
+
+
   };
 
   return (
@@ -204,7 +199,7 @@ function BYOPizza({ addToCart }) {
                 'Tomatoes',
                 'Roasted Red Peppers',
                 'Jalapeno Peppers',
-                'Extra Sauce (free)', // Note: "Extra Sauce" is listed here
+                'Extra Sauce (free)',
               ].map((fruitVegetable) => (
                 <label key={fruitVegetable}>
                   <input

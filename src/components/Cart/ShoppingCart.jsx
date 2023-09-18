@@ -37,10 +37,8 @@ function extractSizeFromName(name) {
 }
 
 function CartItemList({ cartItems, removeFromCart }) {
-  // Create an object to keep track of the quantity of each pizza size
   const sizeCounts = {};
 
-  // Count the number of each pizza size in the cart
   cartItems.forEach((item) => {
     const size = extractSizeFromName(item.name);
     if (size) {
@@ -52,10 +50,8 @@ function CartItemList({ cartItems, removeFromCart }) {
     }
   });
 
-  // Calculate the discount based on the counts
   let discount = 0;
 
-  // Check if there are pairs of the same size pizzas and apply the corresponding discount
   if (sizeCounts['small'] >= 2) {
     discount += 2.0;
   }
@@ -69,12 +65,10 @@ function CartItemList({ cartItems, removeFromCart }) {
     discount += 5.0;
   }
 
-  // Calculate the subtotal without applying the discount
   const subtotalWithoutDiscount = cartItems.reduce((total, item) => {
     return total + item.price * item.quantity;
   }, 0);
 
-  // Subtract the discount from the subtotal
   const subtotal = subtotalWithoutDiscount - discount;
 
   return (
@@ -87,7 +81,7 @@ function CartItemList({ cartItems, removeFromCart }) {
           <p>Your discount is: ${discount.toFixed(2)}</p>
         )}
         <strong>Your subtotal is : ${subtotal.toFixed(2)}</strong>
-        <br/>
+        <br />
         <button id='checkB'>Checkout</button>
       </div>
     </div>
@@ -117,7 +111,7 @@ function CartItem({ item, removeFromCart }) {
         <p><strong>${item.price * item.quantity}</strong></p>
       </div>
       <div className="cell-n">
-        <p>{}</p>
+        <p>{ }</p>
       </div>
     </div>
   );

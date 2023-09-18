@@ -115,7 +115,7 @@ function Beverages({ addToCart }) {
                 return prices[name][size];
             }
         }
-        // Handle any other cases or invalid inputs here
+
         return 0;
     };
 
@@ -129,7 +129,7 @@ function Beverages({ addToCart }) {
     const openModal = (salad) => {
         setSelectedPizza(salad);
         setShowModal(true);
-        setSelectedSize('One'); 
+        setSelectedSize('One');
     };
 
     const closeModal = () => {
@@ -174,8 +174,10 @@ function Beverages({ addToCart }) {
                         ))}
                     </div>
                     <p>Price: ${calculatePrice(selectedPizza.name, selectedSize).toFixed(2)}</p>
-                    <button onClick={() => handleAddToCart(selectedPizza, selectedSize)}>Add to Cart</button>
-                    <button onClick={closeModal}>Close</button>
+                    <div id='modalButtons'>
+                        <button onClick={() => handleAddToCart(selectedPizza, selectedSize)}>Add to Cart</button>
+                        <button onClick={closeModal}>Close</button>
+                    </div>
                 </div>
             )}
         </Layout>

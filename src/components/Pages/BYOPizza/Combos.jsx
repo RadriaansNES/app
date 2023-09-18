@@ -124,13 +124,13 @@ function ComboCustomization({ addToCart }) {
                 setCombo(selectedCombo);
             }
         }
+        // eslint-disable-next-line
     }, [id]);
 
     useEffect(() => {
         if (addToCartClicked) {
             const selectedToppings = [...selectedMeats, ...selectedCheeses, ...selectedFruitVegetables];
 
-            // Create the pizza
             const pizza = {
                 name: `Pizza ${currentPizza} - ${combo.name}`,
                 description: `Toppings: ${selectedToppings.join(', ')}`,
@@ -146,6 +146,7 @@ function ComboCustomization({ addToCart }) {
             // Reset the addToCartClicked state
             setAddToCartClicked(false);
         }
+        // eslint-disable-next-line
     }, [addToCartClicked, selectedMeats, selectedCheeses, selectedFruitVegetables, currentPizza, combo]);
 
     const handleMeatChange = (e) => {
@@ -184,8 +185,6 @@ function ComboCustomization({ addToCart }) {
             setPizzaOneToppings(selectedToppings);
             setCurrentPizza(2);
             setAlertMessage('Pizza One added to cart');
-
-            // Scroll back to the top of the page
             window.scrollTo({ top: 0, behavior: 'smooth' });
 
             // Clear the selected checkboxes
@@ -201,7 +200,7 @@ function ComboCustomization({ addToCart }) {
                     quantity: 1,
                 };
                 addToCart(comboPizza);
-                navigate('/Checkout'); // Redirect to the cart page
+                navigate('/Checkout');
             }
         } else {
             // Pizza Two customization is complete; add the combo to cart
@@ -226,62 +225,62 @@ function ComboCustomization({ addToCart }) {
 
     const calculatePizzaPrice = (selectedToppings) => {
         if (!combo) return 0;
-      
+
         const baseComboPrice = combo.price;
-      
+
         // Define topping limits for each combo
         const comboToppingLimits = {
-          0: 6,  // Combo 0 - 6 toppings allowed
-          1: 6,  // Combo 1 - 6 toppings allowed
-          2: 3,  // Combo 2 - 3 toppings allowed
-          3: 1,  // Combo 3 - 1 topping allowed
-          4: 3,  // Combo 4 - 3 toppings allowed
-          5: 3,  // Combo 5 - 3 toppings allowed
-          6: 6   // Combo 6 - 6 toppings allowed
+            0: 6,
+            1: 6,
+            2: 3,
+            3: 1,
+            4: 3,
+            5: 3,
+            6: 6
         };
-      
-        // Retrieve the topping limit for the current combo from the object
+
+
         const toppingLimit = comboToppingLimits[combo.id];
-      
-        // Define additional topping costs for each combo
+
+
         const comboAdditionalToppingsCosts = {
-          0: 2.0,  // Combo 0 - $2.00 per extra topping
-          1: 1.5,  // Combo 1 - $1.50 per extra topping
-          2: 2.0,  // Combo 2 - $2.50 per extra topping
-          3: 2.5,  // Combo 3 - $2.50 per extra topping
-          4: 2.5,  // Combo 4 - $2.50 per extra topping
-          5: 2.75, // Combo 5 - $2.75 per extra topping
-          6: 2.5   // Combo 6 - $2.50 per extra topping
+            0: 2.0,
+            1: 1.5,
+            2: 2.0,
+            3: 2.5,
+            4: 2.5,
+            5: 2.75,
+            6: 2.5
         };
-      
+
         // Adjust topping limit and cost for "Extra Sauce"
         const extraSauceTopping = 'Extra Sauce (free)';
         const chickenTopping = 'Chicken';
-      
+
         // Exclude "Extra Sauce" from affecting topping limit and cost
         if (selectedToppings.includes(extraSauceTopping)) {
-          const extraSauceIndex = selectedToppings.indexOf(extraSauceTopping);
-          selectedToppings.splice(extraSauceIndex, 1); // Remove "Extra Sauce"
+            const extraSauceIndex = selectedToppings.indexOf(extraSauceTopping);
+            selectedToppings.splice(extraSauceIndex, 1);
         }
-      
+
         // Count "Chicken" as two toppings based on topping limit
         const chickenCount = Math.min(selectedToppings.filter(topping => topping === chickenTopping).length * 2, toppingLimit);
-      
+
         // Calculate the count of all other toppings
         const otherToppingsCount = selectedToppings.filter(topping => topping !== chickenTopping).length;
-      
+
         const extraToppingsCostPerCombo = comboAdditionalToppingsCosts[combo.id];
         const extraToppingsCount = Math.max(0, otherToppingsCount - toppingLimit);
         const extraToppingsCost = extraToppingsCount * extraToppingsCostPerCombo;
-      
+
         // Calculate the total price considering the combo price and extra toppings cost
         const totalPrice = baseComboPrice + extraToppingsCost + (chickenCount * extraToppingsCostPerCombo);
-      
+
         return totalPrice.toFixed(2);
-      };
-      
-      
-      
+    };
+
+
+
 
     return (
         <Layout alertMessage={alertMessage} setAlertMessage={setAlertMessage}>
@@ -290,7 +289,6 @@ function ComboCustomization({ addToCart }) {
             </div>
             <form className='BYOP-Creator'>
                 <div className='BYOPContainer'>
-                    {/* Meats Section */}
                     <div className='Selection'>
                         <h3>SELECT YOUR MEATS</h3>
                         <div className='options'>
@@ -302,7 +300,6 @@ function ComboCustomization({ addToCart }) {
                                 'Italian Sausage',
                                 'Ham',
                                 'Ground Beef',
-                                // Add other meats here
                             ].map((meat) => (
                                 <label key={meat}>
                                     <input
@@ -319,7 +316,6 @@ function ComboCustomization({ addToCart }) {
                         </div>
                     </div>
 
-                    {/* Cheeses Section */}
                     <div className='Selection'>
                         <h3>SELECT YOUR CHEESES</h3>
                         <div className='options'>
@@ -329,7 +325,6 @@ function ComboCustomization({ addToCart }) {
                                 'Cheddar Cheese',
                                 'Feta Cheese',
                                 'Parmesan Cheese',
-                                // Add other cheeses here
                             ].map((cheese) => (
                                 <label key={cheese}>
                                     <input
@@ -345,7 +340,6 @@ function ComboCustomization({ addToCart }) {
                         </div>
                     </div>
 
-                    {/* Fruits/Vegetables Section */}
                     <div className='Selection'>
                         <h3>SELECT YOUR FRUITS/VEGETABLES</h3>
                         <div className='options'>
@@ -366,7 +360,6 @@ function ComboCustomization({ addToCart }) {
                                 'Roasted Red Peppers',
                                 'Jalapeno Peppers',
                                 'Extra Sauce (free)',
-                                // Add other fruits/vegetables here
                             ].map((fruitVegetable) => (
                                 <label key={fruitVegetable}>
                                     <input
@@ -382,9 +375,9 @@ function ComboCustomization({ addToCart }) {
                         </div>
                     </div>
 
-                    {/* Remove the pizza size selection */}
                     <div className='SelectionF'>
-                        <p><strong>Total is ${calculatePizzaPrice([... pizzaOneToppings,...selectedMeats, ...selectedCheeses, ...selectedFruitVegetables])}</strong></p>
+                        <p><strong>Total is ${calculatePizzaPrice([...pizzaOneToppings, ...selectedMeats, ...selectedCheeses, ...selectedFruitVegetables])}
+                        </strong></p>
                         <button id='checkB' onClick={handleAddToCart}>
                             {currentPizza === 1 ? 'Add Pizza One to Cart' : 'Add Pizza Two to Cart'}
                         </button>

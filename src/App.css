@@ -433,6 +433,16 @@ h2 {
   box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
   text-align: center;
   border: 2px solid black;
+  padding-top:30px;
+}
+
+#modalButtons {
+  display: flex;
+  justify-content: space-around;
+}
+
+#modalButtons button {
+  background-color: var(--2nd-colour);
 }
 
 .size-form {

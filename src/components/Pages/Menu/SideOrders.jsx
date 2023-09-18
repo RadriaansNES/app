@@ -31,12 +31,11 @@ function SideOrders({ addToCart }) {
     if (name in flatPrices) {
       return flatPrices[name];
     } else if (name === 'Garlic Bread') {
-      // Assuming selectedSize will be one of 'Regular', 'With Cheese', 'With Cheese and Bacon'
       if (size in prices['Garlic Bread']) {
         return prices['Garlic Bread'][size];
       }
     }
-    // Handle any other cases or invalid inputs here
+
     return 0;
   };
 
@@ -120,8 +119,10 @@ function SideOrders({ addToCart }) {
             </div>
           )}
           <p>Price: ${calculatePrice(selectedPizza.name, selectedSize).toFixed(2)}</p>
-          <button onClick={() => handleAddToCart(selectedPizza, selectedSize)}>Add to Cart</button>
-          <button onClick={closeModal}>Close</button>
+          <div id='modalButtons'>
+            <button onClick={() => handleAddToCart(selectedPizza, selectedSize)}>Add to Cart</button>
+            <button onClick={closeModal}>Close</button>
+          </div>
         </div>
       )}
     </Layout>
