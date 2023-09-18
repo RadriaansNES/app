@@ -14,7 +14,9 @@ function MenuNavbar() {
         <Link to="/checkout">
           <img src={cart} className='cart' alt='Cart for your order' />
         </Link>
-        <img src={logo} alt='Logo' id='headerLogo' />
+        <Link to='/WhatsNew'>
+          <img src={logo} alt='Logo' id='headerLogo' />
+        </Link>
         <Navbar.Toggle aria-controls="basic-navbar-nav" className="custom-toggler" />
       </Container>
       <Container id='dropdown'>
