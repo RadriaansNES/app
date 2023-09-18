@@ -108,7 +108,6 @@ function WhatsNew({ addToCart }) {
     },
   ];
 
-  // Function to scroll to the top of the page and navigate
   const scrollToTopAndNavigate = (url) => {
     window.scrollTo({ top: 0, behavior: 'smooth' });
     navigate(url);
@@ -138,7 +137,7 @@ function WhatsNew({ addToCart }) {
               <Link
                 to={`/combo/${combo.id}`}
                 onClick={(e) => {
-                  e.preventDefault(); // Prevent the default link behavior
+                  e.preventDefault();
                   scrollToTopAndNavigate(`/combo/${combo.id}`);
                 }}
               >

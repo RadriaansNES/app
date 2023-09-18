@@ -1,6 +1,6 @@
 import React from 'react';
 import MenuNavbar from './Navbar';
-import Alert from '../Cart/Alert'; 
+import Alert from '../Cart/Alert';
 
 function Layout({ children, alertMessage, setAlertMessage }) {
   return (

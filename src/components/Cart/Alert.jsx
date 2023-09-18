@@ -6,7 +6,7 @@ function Alert({ message, onClose }) {
   useEffect(() => {
     const timeout = setTimeout(() => {
       setVisible(false);
-      onClose(); 
+      onClose();
     }, 1500);
 
     // Clear the timeout when the component unmounts

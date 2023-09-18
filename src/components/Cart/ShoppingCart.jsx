@@ -30,12 +30,46 @@ function ShoppingCart({ cartItems, removeFromCart }) {
   );
 }
 
-// Extracted CartItemList component
+function extractSizeFromName(name) {
+  const sizePattern = /(Small|Medium|Large|Extra Large)/i;
+  const match = name.match(sizePattern);
+  return match ? match[0].toLowerCase() : null;
+}
+
 function CartItemList({ cartItems, removeFromCart }) {
-  // Calculate the subtotal
-  const subtotal = cartItems.reduce((total, item) => {
+  const sizeCounts = {};
+
+  cartItems.forEach((item) => {
+    const size = extractSizeFromName(item.name);
+    if (size) {
+      if (sizeCounts[size]) {
+        sizeCounts[size] += item.quantity;
+      } else {
+        sizeCounts[size] = item.quantity;
+      }
+    }
+  });
+
+  let discount = 0;
+
+  if (sizeCounts['small'] >= 2) {
+    discount += 2.0;
+  }
+  if (sizeCounts['medium'] >= 2) {
+    discount += 3.0;
+  }
+  if (sizeCounts['large'] >= 2) {
+    discount += 4.0;
+  }
+  if (sizeCounts['extra large'] >= 2) {
+    discount += 5.0;
+  }
+
+  const subtotalWithoutDiscount = cartItems.reduce((total, item) => {
     return total + item.price * item.quantity;
   }, 0);
+
+  const subtotal = subtotalWithoutDiscount - discount;
 
   return (
     <div className="checkout-items">
@@ -43,8 +77,11 @@ function CartItemList({ cartItems, removeFromCart }) {
         <CartItem key={item.id} item={item} removeFromCart={removeFromCart} />
       ))}
       <div>
+        {discount > 0 && (
+          <p>Your discount is: ${discount.toFixed(2)}</p>
+        )}
         <strong>Your subtotal is : ${subtotal.toFixed(2)}</strong>
-        <br/>
+        <br />
         <button id='checkB'>Checkout</button>
       </div>
     </div>
@@ -74,7 +111,7 @@ function CartItem({ item, removeFromCart }) {
         <p><strong>${item.price * item.quantity}</strong></p>
       </div>
       <div className="cell-n">
-        <p>{}</p>
+        <p>{ }</p>
       </div>
     </div>
   );
