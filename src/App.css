@@ -566,7 +566,7 @@ h2 {
     padding-right: 10%;
   }
 
-  .modal {
+  .modal, .alert {
     width: 65%;
   }
 
@@ -671,7 +671,7 @@ h2 {
     padding-right: 15%;
   }
 
-  .modal {
+  .modal, .alert {
     width: 65%;
   }
 
@@ -767,7 +767,7 @@ h2 {
     padding-right: 15%;
   }
 
-  .modal {
+  .modal, .alert {
     width: 40%;
   }
 
