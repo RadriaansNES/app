@@ -542,10 +542,36 @@ h2 {
     font-size: 20px !important;
   }
 
+  .PizzaTypes {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    margin-left: 8%;
+    margin-right: 8%;
+    justify-content: center;
+    gap: 10%;
+  }
+
   .PizzaTypes div {
     margin-top: 8%;
-    margin-left: 20%;
-    margin-right: 20%;
+    margin-left: 0;
+    margin-right: 0;
+    width: 40%;
+    min-height: 250px;
+  }
+
+  .Types, .combos {
+    padding-left: 10%;
+    padding-right: 10%;
+  }
+
+  .modal {
+    width: 65%;
+  }
+
+  .BYOP-Creator {
+    padding-left: 8%;
+    padding-right: 8%;
   }
 }
 
@@ -612,11 +638,48 @@ h2 {
     height: 80px;
   }
 
+  .PizzaTypes {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    margin-left: 8%;
+    margin-right: 8%;
+    justify-content: center;
+    gap: 5%;
+  }
+
   .PizzaTypes div {
     margin-top: 8%;
-    margin-left: 20%;
-    margin-right: 20%;
+    margin-left: 0;
+    margin-right: 0;
+    width: 30%;
+    min-height: 350px;
   }
+
+  .Types, .combos {
+    padding-left: 15%;
+    padding-right: 15%;
+  }
+
+  .modal {
+    width: 65%;
+  }
+
+  .BYOP {
+    margin-left: 15%;
+    margin-right: 15%;
+  }
+
+  .mainCombo {
+    margin-left: 15%;
+    margin-right: 15%;
+  }
+
+  .BYOP-Creator {
+    padding-left: 15%;
+    padding-right: 15%;
+  }
+
 }
 
 @media (min-width: 1440px) {
@@ -682,9 +745,46 @@ h2 {
     height: 80px;
   }
 
+  .PizzaTypes {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    margin-left: 8%;
+    margin-right: 8%;
+    justify-content: center;
+    gap: 5%;
+  }
+
   .PizzaTypes div {
     margin-top: 8%;
-    margin-left: 20%;
-    margin-right: 20%;
+    margin-left: 0;
+    margin-right: 0;
+    width: 30%;
+    min-height: 350px;
   }
+
+  .Types, .combos {
+    padding-left: 15%;
+    padding-right: 15%;
+  }
+
+  .modal {
+    width: 65%;
+  }
+
+  .BYOP {
+    margin-left: 15%;
+    margin-right: 15%;
+  }
+
+  .mainCombo {
+    margin-left: 15%;
+    margin-right: 15%;
+  }
+
+  .BYOP-Creator {
+    padding-left: 15%;
+    padding-right: 15%;
+  }
+  
 }
