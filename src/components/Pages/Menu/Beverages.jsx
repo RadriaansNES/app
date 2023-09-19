@@ -34,7 +34,7 @@ function Beverages({ addToCart }) {
             'Six': 7.45,
             '2 Litre': 3.75
         },
-        'Giner Ale': {
+        'Ginger Ale': {
             'One': 1.59,
             'Four': 5.25,
             'Six': 7.45,
@@ -139,7 +139,7 @@ function Beverages({ addToCart }) {
 
     return (
         <Layout alertMessage={alertMessage} setAlertMessage={setAlertMessage}>
-            <div className='menu'>
+            <div className='menu beverages'>
                 <div className='header' id='ClassicsZa'>
                     <h1>BEVERAGES</h1>
                 </div>
@@ -147,7 +147,6 @@ function Beverages({ addToCart }) {
                     {pizzaOptions.map((salad) => (
                         <div key={salad.id} onClick={() => openModal(salad)}>
                             <h2>{salad.name}</h2>
-                            <p>{salad.cdescrip}</p>
                         </div>
                     ))}
                 </div>

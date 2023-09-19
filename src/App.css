@@ -19,7 +19,7 @@ a {
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
-  background-color: blue;
+  background-color: var(--1st-colour);
   color: #fff;
   width: 80%;
   padding: 10px 20px;
@@ -123,7 +123,7 @@ nav {
   padding: 20px;
   font-size: 40px;
   margin: 0;
-  height: 100px;
+  height: auto;
   background-color: var(--1st-colour);
 }
 
@@ -146,6 +146,8 @@ nav {
   display: flex;
   flex-wrap: wrap;
   padding: 24px;
+  padding-left: 8%;
+  padding-right: 8%;
 }
 
 .combocell {
@@ -181,8 +183,8 @@ nav {
 .mainCombo {
   padding-top: 150px;
   padding-bottom: 50px;
-  margin-left: 12px;
-  margin-right: 12px;
+  margin-left: 8%;
+  margin-right: 8%;
   display: grid;
   grid-template-columns: repeat(2, 1fr);
   color: white;
@@ -232,8 +234,8 @@ h4 {
   margin-top: 40px;
   padding: 20px;
   text-align: center;
-  margin-left: 12px;
-  margin-right: 12px;
+  margin-left: 8%;
+  margin-right: 8%;
 }
 
 h2 {
@@ -265,8 +267,8 @@ h2 {
   display: flex;
   flex-wrap: wrap;
   padding-bottom: 20px;
-  padding-left: 12px;
-  padding-right: 12px;
+  padding-left: 8%;
+  padding-right: 8%;
 }
 
 .Types div {
@@ -331,7 +333,9 @@ h2 {
   display: flex;
   flex-direction: column;
   margin-top: 40px;
-  margin: 48px;
+  margin-bottom: 40px;
+  margin-left: 8%;
+  margin-right: 8%;
   background-color: white;
   min-height: 240px;
   justify-content: space-between;
@@ -354,13 +358,31 @@ h2 {
   padding-bottom: 20px;
 }
 
+ .beverages .PizzaTypes {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  margin-top: 30px;
+  justify-content: center;
+}
+
+.beverages .PizzaTypes div {
+  width: 60%;
+  height: 50px;
+  min-height: 0;
+  margin: 0;
+  background-color: transparent;
+  justify-content: center;
+  text-align: center;
+}
+
 /* Checkout Component */
 
 .Checkout {
   background-color: white;
   margin: 40px 12px 30px 12px;
   border: 1px solid black;
-  min-height: 300px;
+  min-height: auto;
   padding: 10px;
   text-align: center;
 }
@@ -519,6 +541,12 @@ h2 {
   #checkB {
     font-size: 20px !important;
   }
+
+  .PizzaTypes div {
+    margin-top: 8%;
+    margin-left: 20%;
+    margin-right: 20%;
+  }
 }
 
 @media (min-width: 1024px) and (max-width: 1439px) {
@@ -583,6 +611,12 @@ h2 {
     justify-content: center !important;
     height: 80px;
   }
+
+  .PizzaTypes div {
+    margin-top: 8%;
+    margin-left: 20%;
+    margin-right: 20%;
+  }
 }
 
 @media (min-width: 1440px) {
@@ -646,5 +680,11 @@ h2 {
     margin-right: -12px;
     justify-content: center !important;
     height: 80px;
+  }
+
+  .PizzaTypes div {
+    margin-top: 8%;
+    margin-left: 20%;
+    margin-right: 20%;
   }
 }

@@ -192,7 +192,7 @@ function ComboCustomization({ addToCart }) {
             setSelectedCheeses([]);
             setSelectedFruitVegetables([]);
             if ([2, 3, 4, 5].includes(combo.id)) {
-                const comboDescription = `Pizza toppings: ${selectedToppings.join(', ')}`;
+                const comboDescription = `${selectedToppings.join(', ')}`;
                 const comboPizza = {
                     name: `${combo.name}`,
                     description: comboDescription,
@@ -285,7 +285,9 @@ function ComboCustomization({ addToCart }) {
     return (
         <Layout alertMessage={alertMessage} setAlertMessage={setAlertMessage}>
             <div className='header'>
-                <h1>{combo ? `Customize Pizza ${currentPizza}` : 'Loading...'}</h1>
+                <h1>
+                    {combo && [2, 3, 4, 5].includes(combo.id) ? 'Customize Pizza' : `Customize Pizza ${currentPizza}`}
+                </h1>
             </div>
             <form className='BYOP-Creator'>
                 <div className='BYOPContainer'>
@@ -379,7 +381,7 @@ function ComboCustomization({ addToCart }) {
                         <p><strong>Total is ${calculatePizzaPrice([...pizzaOneToppings, ...selectedMeats, ...selectedCheeses, ...selectedFruitVegetables])}
                         </strong></p>
                         <button id='checkB' onClick={handleAddToCart}>
-                            {currentPizza === 1 ? 'Add Pizza One to Cart' : 'Add Pizza Two to Cart'}
+                            {currentPizza === 1 ? 'Add Pizza to Cart' : 'Add Pizza Two to Cart'}
                         </button>
                     </div>
                 </div>
