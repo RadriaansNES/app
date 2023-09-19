@@ -40,6 +40,7 @@ function App() {
           <Route path="/DeliveryMap" element={<DeliveryMap />} />
           <Route path="/checkout" element={<ShoppingCart />} />
           <Route path="/combo/:id" element={<ComboCustomization />} />
+          
         </Routes>
       </Router>
     </Provider>

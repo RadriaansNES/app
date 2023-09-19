@@ -628,6 +628,10 @@ h2 {
   #NavF {
     margin-right: 0 !important;
   }
+
+  #NavF a {
+    padding: 10px;
+  }
   
   .collapse:not(.show) {
     display:flex;
@@ -769,7 +773,7 @@ h2 {
   }
 
   .modal {
-    width: 65%;
+    width: 40%;
   }
 
   .BYOP {
