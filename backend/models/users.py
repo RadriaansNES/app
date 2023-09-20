@@ -1,4 +1,6 @@
-from main import db  # Import the db object from your application
+from flask_sqlalchemy import SQLAlchemy
+
+db = SQLAlchemy()
 
 class User(db.Model):  # Inherit from db.Model
     __tablename__ = 'users'

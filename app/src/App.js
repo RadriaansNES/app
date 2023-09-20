@@ -18,6 +18,7 @@ import Specialties from './components/Pages/Menu/Specialties';
 import SuperSpecialties from './components/Pages/Menu/SuperSpecialties';
 import Subs from './components/Pages/Menu/Subs';
 import Salads from './components/Pages/Menu/Salads';
+import RegistrationForm from './components/Pages/Account/RegistrationForm';
 
 const store = createStore(rootReducer);
 
@@ -40,7 +41,7 @@ function App() {
           <Route path="/DeliveryMap" element={<DeliveryMap />} />
           <Route path="/checkout" element={<ShoppingCart />} />
           <Route path="/combo/:id" element={<ComboCustomization />} />
-          
+          <Route path="/Account" element={<RegistrationForm />} />
         </Routes>
       </Router>
     </Provider>

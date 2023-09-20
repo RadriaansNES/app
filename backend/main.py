@@ -2,7 +2,7 @@ from flask import Flask
 from flask_sqlalchemy import SQLAlchemy
 from config import Config
 from flask_login import LoginManager, UserMixin
-from models import User
+from models.users import User
 
 app = Flask(__name__)
 app.config.from_object(Config)
@@ -17,3 +17,7 @@ login_manager.login_view = 'login'
 def load_user(user_id):
     # Retrieve the user from the database based on user_id
     return User.query.get(int(user_id))
+
+if __name__ == '__main__':
+    # Run Flask on the same port as the React development server (port 3000)
+    app.run(debug=True, host='localhost', port=3000)
