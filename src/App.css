@@ -505,7 +505,7 @@ h2 {
 
 /* Queries */
 
-@media (max-width: 1023px) {
+@media (max-width: 424px) {
   .checkout-item .cell-r button {
     width: 100%;
   }
