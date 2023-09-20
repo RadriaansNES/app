@@ -505,16 +505,11 @@ h2 {
 
 /* Queries */
 
-@media (max-width: 1023px) {
+@media (max-width: 424px) {
   .checkout-item .cell-r button {
     width: 100%;
   }
 }    
-
-.cats {
-  display: flex;
-  flex-direction: column;
-}
 
 @media (min-width: 768px) and (max-width: 1023px) {
   div {
