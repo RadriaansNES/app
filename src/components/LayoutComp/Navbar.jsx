@@ -21,13 +21,13 @@ function MenuNavbar() {
         <Container id='dropdown'>
           <Navbar.Collapse id="basic-navbar-nav">
             <Nav className="me-auto">
-              <Nav.Link href="/Account">ACCOUNT</Nav.Link>
               <Nav.Link href="/WhatsNew">DEALS</Nav.Link>
               <Nav.Link href="/Menu">MENU</Nav.Link>
               <Nav.Link href="/Subs">SUBS</Nav.Link>
               <Nav.Link href="/Salads">SALADS</Nav.Link>
               <Nav.Link href="/Sides">SIDE ORDERS</Nav.Link>
               <Nav.Link href="/Beverages">BEVERAGES</Nav.Link>
+              <Nav.Link href="/Account">ACCOUNT</Nav.Link>
               {/* <Nav.Link href="/DeliveryMap">DELIVERY MAP</Nav.Link> */}
             </Nav>
           </Navbar.Collapse>

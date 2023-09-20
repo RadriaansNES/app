@@ -358,7 +358,7 @@ h2 {
   padding-bottom: 20px;
 }
 
- .beverages .PizzaTypes {
+.beverages .PizzaTypes {
   display: flex;
   flex-direction: row;
   flex-wrap: wrap;
@@ -505,17 +505,25 @@ h2 {
 
 /* Queries */
 
+@media (max-width: 1023px) {
+  .checkout-item .cell-r button {
+    width: 100%;
+  }
+}
+
 @media (min-width: 768px) and (max-width: 1023px) {
   div {
     font-size: 16px !important;
   }
 
   p,
-  h4, label {
+  h4,
+  label {
     font-size: 20px !important;
   }
 
-  h2, h3 {
+  h2,
+  h3 {
     font-size: 28.5px !important;
   }
 
@@ -561,12 +569,14 @@ h2 {
     min-height: 250px;
   }
 
-  .Types, .combos {
+  .Types,
+  .combos {
     padding-left: 10%;
     padding-right: 10%;
   }
 
-  .modal, .alert {
+  .modal,
+  .alert {
     width: 65%;
   }
 
@@ -587,11 +597,13 @@ h2 {
   }
 
   p,
-  h4, label {
+  h4,
+  label {
     font-size: 20px !important;
   }
 
-  h2, h3 {
+  h2,
+  h3 {
     font-size: 28.5px !important;
   }
 
@@ -619,14 +631,17 @@ h2 {
   #checkB {
     font-size: 20px !important;
   }
-  #dropdown, .cart, .header {
+
+  #dropdown,
+  .cart,
+  .header {
     display: none !important;
   }
 
   #hide {
     display: flex;
   }
-  
+
   .container {
     justify-content: center !important;
   }
@@ -638,9 +653,9 @@ h2 {
   #NavF a {
     padding: 10px;
   }
-  
+
   .collapse:not(.show) {
-    display:flex;
+    display: flex;
     background-color: var(--1st-colour);
     margin-left: -12px;
     margin-right: -12px;
@@ -666,16 +681,21 @@ h2 {
     min-height: 350px;
   }
 
-  .Types, .combos, .BYOP-Creator {
+  .Types,
+  .combos,
+  .BYOP-Creator {
     padding-left: 15%;
     padding-right: 15%;
   }
 
-  .modal, .alert {
+  .modal,
+  .alert {
     width: 65%;
   }
 
-  .BYOP, .Checkout, .mainCombo {
+  .BYOP,
+  .Checkout,
+  .mainCombo {
     margin-left: 15%;
     margin-right: 15%;
   }
@@ -687,11 +707,14 @@ h2 {
   }
 
   p,
-  h4, label, strong {
+  h4,
+  label,
+  strong {
     font-size: 20px !important;
   }
 
-  h2, h3 {
+  h2,
+  h3 {
     font-size: 28.5px !important;
   }
 
@@ -719,14 +742,17 @@ h2 {
   #checkB {
     font-size: 20px !important;
   }
-  #dropdown, .cart, .header {
+
+  #dropdown,
+  .cart,
+  .header {
     display: none !important;
   }
 
   #hide {
     display: flex;
   }
-  
+
   .container {
     justify-content: center !important;
   }
@@ -734,9 +760,9 @@ h2 {
   #NavF {
     margin-right: 0 !important;
   }
-  
+
   .collapse:not(.show) {
-    display:flex;
+    display: flex;
     background-color: var(--1st-colour);
     margin-left: -12px;
     margin-right: -12px;
@@ -762,17 +788,22 @@ h2 {
     min-height: 350px;
   }
 
-  .Types, .combos, .BYOP-Creator {
+  .Types,
+  .combos,
+  .BYOP-Creator {
     padding-left: 15%;
     padding-right: 15%;
   }
 
-  .modal, .alert {
+  .modal,
+  .alert {
     width: 40%;
   }
 
-  .BYOP, .Checkout, .mainCombo {
+  .BYOP,
+  .Checkout,
+  .mainCombo {
     margin-left: 15%;
     margin-right: 15%;
-  }  
+  }
 }
