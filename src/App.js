@@ -13,11 +13,13 @@ import { createStore } from 'redux';
 import { Provider } from 'react-redux';
 import rootReducer from './redux/reducers';
 import ShoppingCart from './components/Cart/ShoppingCart';
+
 import ComboCustomization from './components/Pages/BYOPizza/Combos';
 import Specialties from './components/Pages/Menu/Specialties';
 import SuperSpecialties from './components/Pages/Menu/SuperSpecialties';
 import Subs from './components/Pages/Menu/Subs';
 import Salads from './components/Pages/Menu/Salads';
+
 
 const store = createStore(rootReducer);
 
@@ -39,6 +41,7 @@ function App() {
           <Route path="/Beverages" element={<Beverages />} />
           <Route path="/DeliveryMap" element={<DeliveryMap />} />
           <Route path="/checkout" element={<ShoppingCart />} />
+
           <Route path="/combo/:id" element={<ComboCustomization />} />
           
         </Routes>

@@ -1,13 +1,16 @@
 import React, { useState } from 'react';
 import { connect } from 'react-redux';
-import { Link, useNavigate } from 'react-router-dom';
-import Layout from '../../LayoutComp/Layout';
 
+import { Link, useNavigate } from 'react-router-dom';
+
+import Layout from '../../LayoutComp/Layout';
 import { addToCart } from '../../../redux/actions';
+
 
 function WhatsNew({ addToCart }) {
   const navigate = useNavigate();
   const [alertMessage, setAlertMessage] = useState('');
+
 
   const combos = [
     {
@@ -114,18 +117,22 @@ function WhatsNew({ addToCart }) {
     <Layout alertMessage={alertMessage} setAlertMessage={setAlertMessage}>
       <div className='header'>
         <h1>
-          <button>START YOUR ORDER</button></h1>
+          <button>START YOUR ORDER</button>
+        </h1>
       </div>
       <div className='main'>
         <div className='mainCombo'>
+
           <p className='maininfo' onClick={() => scrollToTopAndNavigate('/combo/0')}>2 Medium Pizzas<br />6 Toppings combined</p>
           <p className='mainprice' onClick={() => scrollToTopAndNavigate('/combo/0')}>Only<br /><span>$26.99</span><em><br />+tax</em></p>
+
         </div>
         <div className='combos'>
           {combos.slice(1).map((combo) => (
             <div
               className='combocell'
               key={combo.id}
+
             >
               <Link
                 to={`/combo/${combo.id}`}

@@ -2,7 +2,10 @@ import { combineReducers } from 'redux';
 import { ADD_TO_CART, REMOVE_FROM_CART } from './actions';
 
 const initialState = {
-  cartItems: JSON.parse(sessionStorage.getItem('cartItems')) || [], // Read from session storage
+  cartItems: JSON.parse(sessionStorage.getItem('cartItems')) || [],
+  isFirstPizza: true,
+  comboDetails: null, // Initialize comboDetails as null
+  // ... other existing state properties
 };
 
 const findItemIndex = (cartItems, item) =>
@@ -10,32 +13,34 @@ const findItemIndex = (cartItems, item) =>
     (cartItem) => cartItem.id === item.id && cartItem.name === item.name
   );
 
-const cartReducer = (state = initialState, action) => {
-  switch (action.type) {
-    case ADD_TO_CART:
-      const itemToAdd = action.payload;
-      const existingItemIndex = findItemIndex(state.cartItems, itemToAdd);
-
-      if (existingItemIndex !== -1) {
-        // If the item already exists in the cart, update its quantity and description
-        const updatedCartItems = [...state.cartItems];
-        updatedCartItems[existingItemIndex].quantity += 1;
-        updatedCartItems[existingItemIndex].description = itemToAdd.description; // Update description
-
-        sessionStorage.setItem('cartItems', JSON.stringify(updatedCartItems)); // Save to sessionStorage
-        return {
-          ...state,
-          cartItems: updatedCartItems,
-        };
-      } else {
-        // If the item is not in the cart, add it
-        const updatedCartItemsAdd = [...state.cartItems, itemToAdd];
-        sessionStorage.setItem('cartItems', JSON.stringify(updatedCartItemsAdd)); // Save to sessionStorage
-        return {
-          ...state,
-          cartItems: updatedCartItemsAdd,
-        };
-      }
+  const cartReducer = (state = initialState, action) => {
+    switch (action.type) {
+      case ADD_TO_CART:
+        const itemToAdd = action.payload.item;
+        const existingItemIndex = findItemIndex(state.cartItems, itemToAdd);
+  
+        if (existingItemIndex !== -1) {
+          const updatedCartItems = [...state.cartItems];
+          updatedCartItems[existingItemIndex].quantity += 1;
+          updatedCartItems[existingItemIndex].description = itemToAdd.description;
+  
+          sessionStorage.setItem('cartItems', JSON.stringify(updatedCartItems));
+          return {
+            ...state,
+            cartItems: updatedCartItems,
+            isFirstPizza: action.payload.isFirstPizza, // Update isFirstPizza
+            comboDetails: action.payload.comboDetails, // Update comboDetails
+          };
+        } else {
+          const updatedCartItemsAdd = [...state.cartItems, itemToAdd];
+          sessionStorage.setItem('cartItems', JSON.stringify(updatedCartItemsAdd));
+          return {
+            ...state,
+            cartItems: updatedCartItemsAdd,
+            isFirstPizza: action.payload.isFirstPizza, // Update isFirstPizza
+            comboDetails: action.payload.comboDetails, // Update comboDetails
+          };
+        }
 
 
     case REMOVE_FROM_CART:
