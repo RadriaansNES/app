@@ -3,11 +3,14 @@ from flask_sqlalchemy import SQLAlchemy
 from config import Config
 from flask_login import LoginManager, UserMixin
 from models.users import User
+from flask_cors import CORS
 
 app = Flask(__name__)
 app.config.from_object(Config)
-db = SQLAlchemy(app)
+CORS(app, resources={r"/*": {"origins": "http://localhost:3000"}})
 
+
+db = SQLAlchemy(app)
 
 login_manager = LoginManager()
 login_manager.init_app(app)
@@ -19,5 +22,4 @@ def load_user(user_id):
     return User.query.get(int(user_id))
 
 if __name__ == '__main__':
-    # Run Flask on the same port as the React development server (port 3000)
-    app.run(debug=True, host='localhost', port=3000)
+    app.run()  # Start the Flask applicatio
