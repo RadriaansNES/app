@@ -520,6 +520,28 @@ h2 {
   margin-bottom: 8px;
 }
 
+/* Account related. */
+.Registration {
+  background-color: white;
+  margin-left: 8%;
+  margin-right: 8%;
+  padding-top: 20px;
+  margin-bottom: 40px;
+  
+}
+
+.Registration input {
+  min-width: 250px;
+}
+
+.Registration label {
+  padding-bottom: 10px;
+}
+
+.Registration button {
+  margin-left: 25px;
+}
+
 /* Queries */
 
 @media (max-width: 424px) {

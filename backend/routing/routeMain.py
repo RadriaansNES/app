@@ -1,5 +1,5 @@
 from flask import request, jsonify, Blueprint
-from flask_login import login_user, logout_user, login_required
+from flask_login import login_user, logout_user, login_required, current_user
 from werkzeug.security import generate_password_hash, check_password_hash
 from models.users import User
 from main import db 
@@ -51,3 +51,15 @@ def login():
         login_user(user)
         return jsonify(message='Login successful')
     return jsonify(message='Login failed', error=True)
+
+# Go to login on failure (flask-login). 
+@main_blueprint.route('/Account', methods=['GET'])
+@login_required
+def protected_route():
+    # You can access the current logged-in user using `current_user`
+    user_info = {
+        'username': current_user.username,
+        'first_name': current_user.first_name,
+        'last_name': current_user.last_name,
+    }
+    return jsonify(user_info), 200

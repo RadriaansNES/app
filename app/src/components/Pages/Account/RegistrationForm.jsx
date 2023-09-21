@@ -1,9 +1,10 @@
 import React, { useState } from 'react';
 import Layout from '../../LayoutComp/Layout';
 import { connect } from 'react-redux';
+import { useNavigate } from 'react-router-dom';
 
 function RegistrationForm() {
-
+    const navigate = useNavigate();
     const [formData, setFormData] = useState({
         username: '',
         password: '',
@@ -38,6 +39,7 @@ function RegistrationForm() {
 
             if (response.ok) {
                 console.log('Registration successful');
+                navigate('/Login');
             } else {
                 console.error('Registration failed');
                 console.error('Response Status:', response.status);
@@ -50,114 +52,118 @@ function RegistrationForm() {
 
     return (
         <Layout>
-            <div>
-                <h2>Registration Form</h2>
-                <form onSubmit={handleSubmit}>
-                    <label>
-                        Username:
-                        <input
-                            type="text"
-                            name="username"
-                            value={formData.username}
-                            onChange={handleChange}
-                            required
-                            autoComplete="username"
-                        />
-                    </label>
-                    <br />
-                    <label>
-                        Password:
-                        <input
-                            type="password"
-                            name="password"
-                            value={formData.password}
-                            onChange={handleChange}
-                            required
-                            autoComplete="current-password"
-                        />
-                    </label>
-                    <br />
-                    <label>
-                        First Name:
-                        <input
-                            type="text"
-                            name="first_name"
-                            value={formData.first_name}
-                            onChange={handleChange}
-                            required
-                            autoComplete="given-name"
-                        />
-                    </label>
-                    <br />
-                    <label>
-                        Last Name:
-                        <input
-                            type="text"
-                            name="last_name"
-                            value={formData.last_name}
-                            onChange={handleChange}
-                            required
-                            autoComplete="family-name"
-                        />
-                    </label>
-                    <br />
-                    <label>
-                        Telephone:
-                        <input
-                            type="number"
-                            name="telephone"
-                            value={formData.telephone}
-                            onChange={handleChange}
-                            autoComplete="tel"
-                        />
-                    </label>
-                    <br />
-                    <label>
-                        Address:
-                        <input
-                            type="text"
-                            name="address"
-                            value={formData.address}
-                            onChange={handleChange}
-                            autoComplete="street-address"
-                        />
-                    </label>
-                    <br />
-                    <label>
-                        City:
-                        <input
-                            type="text"
-                            name="city"
-                            value={formData.city}
-                            onChange={handleChange}
-                            autoComplete="address-level2"
-                        />
-                    </label>
-                    <br />
-                    <label>
-                        Postal Code:
-                        <input
-                            type="text"
-                            name="postal_code"
-                            value={formData.postal_code}
-                            onChange={handleChange}
-                            autoComplete="postal-code"
-                        />
-                    </label>
-                    <br />
-                    <label>
-                        Country:
-                        <input
-                            type="text"
-                            name="country"
-                            value={formData.country}
-                            onChange={handleChange}
-                            autoComplete="country"
-                        />
-                    </label>
-                    <br />
-                    <button type="submit">Register</button>
-                </form>
+            <div className='menu'>
+                <div className='header' id='ClassicsZa'>
+                    <h1>REGISTRATION</h1>
+                </div>
+                <div className='Types Registration'>
+                    <form onSubmit={handleSubmit}>
+                        <label>
+                            Username:
+                            <input
+                                type="text"
+                                name="username"
+                                value={formData.username}
+                                onChange={handleChange}
+                                required
+                                autoComplete="username"
+                            />
+                        </label>
+                        <br />
+                        <label>
+                            Password:
+                            <input
+                                type="password"
+                                name="password"
+                                value={formData.password}
+                                onChange={handleChange}
+                                required
+                                autoComplete="current-password"
+                            />
+                        </label>
+                        <br />
+                        <label>
+                            First Name:
+                            <input
+                                type="text"
+                                name="first_name"
+                                value={formData.first_name}
+                                onChange={handleChange}
+                                required
+                                autoComplete="given-name"
+                            />
+                        </label>
+                        <br />
+                        <label>
+                            Last Name:
+                            <input
+                                type="text"
+                                name="last_name"
+                                value={formData.last_name}
+                                onChange={handleChange}
+                                required
+                                autoComplete="family-name"
+                            />
+                        </label>
+                        <br />
+                        <label>
+                            Telephone:
+                            <input
+                                type="number"
+                                name="telephone"
+                                value={formData.telephone}
+                                onChange={handleChange}
+                                autoComplete="tel"
+                            />
+                        </label>
+                        <br />
+                        <label>
+                            Address:
+                            <input
+                                type="text"
+                                name="address"
+                                value={formData.address}
+                                onChange={handleChange}
+                                autoComplete="street-address"
+                            />
+                        </label>
+                        <br />
+                        <label>
+                            City:
+                            <input
+                                type="text"
+                                name="city"
+                                value={formData.city}
+                                onChange={handleChange}
+                                autoComplete="address-level2"
+                            />
+                        </label>
+                        <br />
+                        <label>
+                            Postal Code:
+                            <input
+                                type="text"
+                                name="postal_code"
+                                value={formData.postal_code}
+                                onChange={handleChange}
+                                autoComplete="postal-code"
+                            />
+                        </label>
+                        <br />
+                        <label>
+                            Country:
+                            <input
+                                type="text"
+                                name="country"
+                                value={formData.country}
+                                onChange={handleChange}
+                                autoComplete="country"
+                            />
+                        </label>
+                        <br />
+                        <button id ='checkB' type="submit">Register</button>
+                    </form>
+                </div>
             </div>
         </Layout>
     );
