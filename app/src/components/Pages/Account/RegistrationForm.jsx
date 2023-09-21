@@ -61,6 +61,7 @@ function RegistrationForm() {
                             value={formData.username}
                             onChange={handleChange}
                             required
+                            autoComplete="username"
                         />
                     </label>
                     <br />
@@ -72,6 +73,7 @@ function RegistrationForm() {
                             value={formData.password}
                             onChange={handleChange}
                             required
+                            autoComplete="current-password"
                         />
                     </label>
                     <br />
@@ -83,6 +85,7 @@ function RegistrationForm() {
                             value={formData.first_name}
                             onChange={handleChange}
                             required
+                            autoComplete="given-name"
                         />
                     </label>
                     <br />
@@ -94,6 +97,7 @@ function RegistrationForm() {
                             value={formData.last_name}
                             onChange={handleChange}
                             required
+                            autoComplete="family-name"
                         />
                     </label>
                     <br />
@@ -104,6 +108,7 @@ function RegistrationForm() {
                             name="telephone"
                             value={formData.telephone}
                             onChange={handleChange}
+                            autoComplete="tel"
                         />
                     </label>
                     <br />
@@ -114,6 +119,7 @@ function RegistrationForm() {
                             name="address"
                             value={formData.address}
                             onChange={handleChange}
+                            autoComplete="street-address"
                         />
                     </label>
                     <br />
@@ -124,6 +130,7 @@ function RegistrationForm() {
                             name="city"
                             value={formData.city}
                             onChange={handleChange}
+                            autoComplete="address-level2"
                         />
                     </label>
                     <br />
@@ -134,6 +141,7 @@ function RegistrationForm() {
                             name="postal_code"
                             value={formData.postal_code}
                             onChange={handleChange}
+                            autoComplete="postal-code"
                         />
                     </label>
                     <br />
@@ -144,6 +152,7 @@ function RegistrationForm() {
                             name="country"
                             value={formData.country}
                             onChange={handleChange}
+                            autoComplete="country"
                         />
                     </label>
                     <br />

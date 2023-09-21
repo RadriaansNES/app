@@ -14,93 +14,49 @@ function WhatsNew({ addToCart }) {
       id: 0,
       name: 'Special Combo',
       cdescrip: '2 Medium pizzas, 6 toppings',
-      description: (
-        <div>
-          2 Medium Pizzas
-          <br />
-          6 Toppings combined
-        </div>
-      ),
+      description: '2 Medium Pizzas\n6 Toppings combined',
       price: 26.99,
     },
     {
       id: 1,
       name: 'COMBO 1',
       cdescrip: '2 Small pizzas, 6 toppings',
-      description: (
-        <div>
-          2 Small Pizzas
-          <br />
-          6 Toppings combined
-        </div>
-      ),
+      description: '2 Small Pizzas\n6 Toppings combined',
       price: 21.99,
     },
     {
       id: 2,
       name: 'COMBO 2',
       cdescrip: '1 Medium classic pizza',
-      description: (
-        <div>
-          1 Medium <br /> Classic Pizza
-        </div>
-      ),
+      description: '1 Medium\nClassic Pizza',
       price: 17.49,
     },
     {
       id: 3,
       name: 'COMBO 3',
       cdescrip: '1 Large pizza, 1 topping',
-      description: (
-        <div>
-          1 Large Pizza
-          <br />
-          1 Topping
-          <br />
-          Pick-up Only
-        </div>
-      ),
+      description: '1 Large Pizza\n1 Topping\nPick-up Only',
       price: 11.99,
     },
     {
       id: 4,
       name: 'COMBO 4',
       cdescrip: '1 Large pizza, 3 toppings, 4 pack of Coke',
-      description: (
-        <div>
-          1 Large Pizza
-          <br />
-          3 Toppings
-          <br />
-          4 pack of Coke
-        </div>
-      ),
+      description: '1 Large Pizza\n3 Toppings\n4 pack of Coke',
       price: 23.99,
     },
     {
       id: 5,
       name: 'COMBO 5',
       cdescrip: '1 Extra large pizza, 3 toppings',
-      description: (
-        <div>
-          1 Extra Large Pizza
-          <br />
-          3 Toppings
-        </div>
-      ),
+      description: '1 Extra Large Pizza\n3 Toppings',
       price: 22.99,
     },
     {
       id: 6,
       name: 'COMBO 6',
       cdescrip: '2 Large pizzas, 6 toppings',
-      description: (
-        <div>
-          2 Large Pizzas
-          <br />
-          6 Toppings combined
-        </div>
-      ),
+      description: '2 Large Pizzas\n6 Toppings combined',
       price: 33.99,
     },
   ];
@@ -114,19 +70,21 @@ function WhatsNew({ addToCart }) {
     <Layout alertMessage={alertMessage} setAlertMessage={setAlertMessage}>
       <div className='header'>
         <h1>
-          <button>START YOUR ORDER</button></h1>
+          <button>START YOUR ORDER</button>
+        </h1>
       </div>
       <div className='main'>
         <div className='mainCombo'>
-          <p className='maininfo' onClick={() => scrollToTopAndNavigate('/combo/0')}>2 Medium Pizzas<br />6 Toppings combined</p>
-          <p className='mainprice' onClick={() => scrollToTopAndNavigate('/combo/0')}>Only<br /><span>$26.99</span><em><br />+tax</em></p>
+          <p className='maininfo' onClick={() => scrollToTopAndNavigate('/combo/0')}>
+            2 Medium Pizzas<br />6 Toppings combined
+          </p>
+          <p className='mainprice' onClick={() => scrollToTopAndNavigate('/combo/0')}>
+            Only<br /><span>$26.99</span><em><br />+tax</em>
+          </p>
         </div>
         <div className='combos'>
           {combos.slice(1).map((combo) => (
-            <div
-              className='combocell'
-              key={combo.id}
-            >
+            <div className='combocell' key={combo.id}>
               <Link
                 to={`/combo/${combo.id}`}
                 onClick={(e) => {
@@ -135,7 +93,9 @@ function WhatsNew({ addToCart }) {
                 }}
               >
                 <h4>{combo.name}</h4>
-                <p>{combo.description}</p>
+                {combo.description.split('\n').map((line, index) => (
+                  <div key={index}>{line}</div>
+                ))}
                 <p className='price'>${combo.price.toFixed(2)}</p>
               </Link>
             </div>

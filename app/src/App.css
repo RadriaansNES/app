@@ -164,10 +164,9 @@ nav {
 }
 
 
-.combocell p {
+.combocell div {
   font-weight: bold;
   font-size: 12px;
-  padding: 5px;
   margin-top: auto;
 }
 
@@ -178,6 +177,11 @@ nav {
   color: white;
   font-size: 24px;
   font-weight: normal;
+  margin-top: 20px;
+}
+
+.combocell h4 {
+  margin-bottom: 20px;
 }
 
 .mainCombo {
@@ -202,6 +206,7 @@ nav {
   display: flex;
   align-items: center;
   justify-content: center;
+  text-align: center;
 }
 
 .mainCombo .mainprice {
@@ -512,7 +517,7 @@ h2 {
 }    
 
 @media (min-width: 768px) and (max-width: 1023px) {
-  div {
+  div, .combocell div {
     font-size: 16px !important;
   }
 
@@ -592,7 +597,7 @@ h2 {
 }
 
 @media (min-width: 1024px) and (max-width: 1439px) {
-  div {
+  div, .combocell div {
     font-size: 16px !important;
   }
 
@@ -702,7 +707,7 @@ h2 {
 }
 
 @media (min-width: 1440px) {
-  div {
+  div, .combocell div {
     font-size: 16px !important;
   }
 
