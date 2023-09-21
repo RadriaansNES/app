@@ -115,7 +115,6 @@ function ComboCustomization({ addToCart }) {
     ];
 
     useEffect(() => {
-        // Fetch combo data based on the 'id' from the URL parameters
         if (id) {
             const comboId = parseInt(id, 10);
             const selectedCombo = combos.find((c) => c.id === comboId);
@@ -139,7 +138,6 @@ function ComboCustomization({ addToCart }) {
             };
             addToCart(pizza);
 
-            // Change the current pizza to the next one
             setCurrentPizza(currentPizza === 1 ? 2 : 1);
             setAlertMessage('Combo added to cart');
 
@@ -187,7 +185,7 @@ function ComboCustomization({ addToCart }) {
             setAlertMessage('Pizza One added to cart');
             window.scrollTo({ top: 0, behavior: 'smooth' });
 
-            // Clear the selected checkboxes
+
             setSelectedMeats([]);
             setSelectedCheeses([]);
             setSelectedFruitVegetables([]);
@@ -228,7 +226,6 @@ function ComboCustomization({ addToCart }) {
 
         const baseComboPrice = combo.price;
 
-        // Define topping limits for each combo
         const comboToppingLimits = {
             0: 6,
             1: 6,
@@ -266,14 +263,13 @@ function ComboCustomization({ addToCart }) {
         // Count "Chicken" as two toppings based on topping limit
         const chickenCount = Math.min(selectedToppings.filter(topping => topping === chickenTopping).length * 2, toppingLimit);
 
-        // Calculate the count of all other toppings
         const otherToppingsCount = selectedToppings.filter(topping => topping !== chickenTopping).length;
 
         const extraToppingsCostPerCombo = comboAdditionalToppingsCosts[combo.id];
         const extraToppingsCount = Math.max(0, otherToppingsCount - toppingLimit);
         const extraToppingsCost = extraToppingsCount * extraToppingsCostPerCombo;
 
-        // Calculate the total price considering the combo price and extra toppings cost
+     
         const totalPrice = baseComboPrice + extraToppingsCost + (chickenCount * extraToppingsCostPerCombo);
 
         return totalPrice.toFixed(2);

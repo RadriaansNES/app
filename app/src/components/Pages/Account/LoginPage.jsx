@@ -38,7 +38,8 @@ function LoginPage(props) {
             
             if (response.ok) {
                 console.log('Login successful. User Info:', data.user_info);
-                props.login(data.user_info); // Dispatch the login action to change the isAuthenticated state
+                props.login(data.user_info); 
+                  localStorage.setItem('user', JSON.stringify(data.user_info))
                 navigate('/Dashboard');
             } else {
                 console.error('Login failed');

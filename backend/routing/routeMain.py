@@ -49,18 +49,16 @@ def login():
     user = User.query.filter_by(username=username).first()
     if user and check_password_hash(user.hashed_password.decode('utf-8'), password):
         login_user(user)
-        user.is_active = True  # Set is_active to True when the user logs in
+        user.is_active = True  
         db.session.commit()
         
-        # Fetch user information from the database
         user_info = {
             'username': user.username,
             'first_name': user.first_name,
             'last_name': user.last_name,
-            # Include any other user information you want to pass to the frontend
         }
 
-        print("User information retrieved from the database:", user_info)  # Add this line for debugging
+        print("User information retrieved from the database:", user_info)  
 
         return jsonify(message='Login successful', user_info=user_info), 200
     else:

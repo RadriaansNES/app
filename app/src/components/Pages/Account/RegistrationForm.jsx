@@ -40,11 +40,10 @@ function RegistrationForm() {
     
             if (response.ok) {
                 console.log('Registration successful');
-                // Set the alert message and trigger a timeout for redirection
                 setAlertMessage('Account successfully created!');
                 setTimeout(() => {
                     navigate('/Login');
-                }, 1500); // Delay the redirection for 1.5 seconds
+                }, 1500);
             } else {
                 console.error('Registration failed');
                 console.error('Response Status:', response.status);

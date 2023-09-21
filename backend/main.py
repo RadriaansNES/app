@@ -17,7 +17,7 @@ login_manager.login_view = 'login'
 
 @login_manager.user_loader
 def load_user(user_id):
-    # Retrieve the user from the database based on user_id
+ 
     return User.query.get(int(user_id))
 
 if __name__ == '__main__':

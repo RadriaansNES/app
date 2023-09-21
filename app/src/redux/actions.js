@@ -23,7 +23,7 @@ export const removeFromCart = (itemId) => ({
 
 export const login = (user) => ({
   type: LOGIN,
-  payload: user, // Pass the user's information here
+  payload: user, 
 });
 
 export const logout = () => ({

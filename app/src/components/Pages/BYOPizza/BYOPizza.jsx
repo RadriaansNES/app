@@ -55,7 +55,7 @@ function BYOPizza({ addToCart }) {
     // Calculate the total price with adjusted topping quantity and rate
     pizzaPrice += toppingQuantity * (extraToppingRates[selectedSize] || 0);
 
-    // Update the total price
+    
     setTotalPrice(pizzaPrice);
   }, [selectedSize, selectedMeats, selectedCheeses, selectedFruitVegetables, basePrices, extraToppingRates]);
 

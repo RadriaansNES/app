@@ -1,24 +1,33 @@
-import React from 'react';
+import React, {useEffect} from 'react';
 import Layout from '../../LayoutComp/Layout';
 import { connect } from 'react-redux';
 import { useNavigate } from 'react-router-dom';
-import { logout } from '../../../redux/actions'; // Import the logout action
+import { logout } from '../../../redux/actions'; 
+import { login } from '../../../redux/actions';
 
 function Dashboard(props) {
     const navigate = useNavigate();
 
+    useEffect(() => {
+      const storedUser = localStorage.getItem('user');
+      if (storedUser) {
+        props.login(JSON.parse(storedUser));
+      }
+      // eslint-disable-next-line
+    }, []);
+  
     const handleLogout = () => {
-        console.log('User object in Dashboard:', props.user);
-        // Dispatch the logout action to change the isAuthenticated state
-        props.logout();
-        navigate('/Login');
+      console.log('User object in Dashboard:', props.user);
+      // Dispatch the logout action to change the isAuthenticated state
+      props.logout();
+      navigate('/Login');
     };
 
     return (
         <Layout>
             <div className='menu'>
                 <div className='header' id='ClassicsZa'>
-                    <h1>Hello {props.user && props.user.first_name}</h1> {/* Access first_name from Redux store */}
+                    <h1>Hello {props.user && props.user.first_name}</h1> 
                     <div className='Types Registration' id='Account'>
                         <div>
                             <h3>Order History</h3>
@@ -52,7 +61,7 @@ function Dashboard(props) {
 
 const mapStateToProps = (state) => ({
     isAuthenticated: state.auth.isAuthenticated,
-    user: state.auth.user, // Access user_info from Redux store
+    user: state.auth.user, 
 });
 
-export default connect(mapStateToProps, { logout })(Dashboard);
+export default connect(mapStateToProps, { login, logout })(Dashboard);

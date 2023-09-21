@@ -53,10 +53,11 @@ const authReducer = (state = initialState, action) => {
   switch (action.type) {
     case LOGIN:
       localStorage.setItem('isAuthenticated', 'true');
+      localStorage.setItem('user', JSON.stringify(action.payload)); 
       return {
         ...state,
         isAuthenticated: true,
-        user: action.payload, // Store the user's information in the state
+        user: action.payload, 
       };
 
     case LOGOUT:
@@ -64,7 +65,7 @@ const authReducer = (state = initialState, action) => {
       return {
         ...state,
         isAuthenticated: false,
-        user: {}, // Clear user information on logout
+        user: {},
       };
 
     default:

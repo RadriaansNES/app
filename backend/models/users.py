@@ -2,7 +2,7 @@ from flask_sqlalchemy import SQLAlchemy
 
 db = SQLAlchemy()
 
-class User(db.Model):  # Inherit from db.Model
+class User(db.Model):  
     __tablename__ = 'users'
 
     id = db.Column(db.Integer, primary_key=True, autoincrement=True)
@@ -14,8 +14,8 @@ class User(db.Model):  # Inherit from db.Model
     city = db.Column(db.String(50))
     postal_code = db.Column(db.String(50))
     country = db.Column(db.String(50))
-    hashed_password = db.Column(db.String(128), nullable=False)  # Change to db.String for hashed_password
-    salt = db.Column(db.String(128))  # Change to db.String for salt
+    hashed_password = db.Column(db.String(128), nullable=False)  
+    salt = db.Column(db.String(128))  
     is_active = db.Column(db.Boolean, default=False)
 
     def get_id(self):
