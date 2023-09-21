@@ -2,3 +2,5 @@ node_modules
 venv
 app/node_modules
 __pycache__
+config
+backend/config.py
