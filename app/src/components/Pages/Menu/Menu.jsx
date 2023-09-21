@@ -64,6 +64,13 @@ function Menu() {
             </a>
           </div>
         </div>
+        <div className='discounts'>
+            <h2>Discounts</h2>
+            <div>Order <strong>two small pizzas</strong>, recieve <strong>$2.00</strong> off your order</div>
+            <div>Order <strong>two medium pizzas</strong>, recieve <strong>$3.00</strong> off your order</div>
+            <div>Order <strong>two large pizzas</strong>, recieve <strong>$4.00</strong> off your order</div>
+            <div>Order <strong>two extra large pizzas</strong>, recieve <strong>$5.00</strong> off your order</div>
+          </div>
       </div>
     </Layout>
   );

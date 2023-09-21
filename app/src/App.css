@@ -287,6 +287,18 @@ h2 {
   margin-top: 40px;
 }
 
+.discounts {
+  display: flex;
+  flex-direction: column;
+  text-align: center;
+  background-color: white;
+  margin-top: 20px;
+  margin-left: 5%;
+  margin-right: 5%;
+  margin-bottom: 30px;
+  padding-bottom: 10px;
+}
+
 /* BYOP */
 .BYOP-Creator {
   padding: 12px;
@@ -514,10 +526,12 @@ h2 {
   .checkout-item .cell-r button {
     width: 100%;
   }
-}    
+}
 
 @media (min-width: 768px) and (max-width: 1023px) {
-  div, .combocell div {
+
+  div,
+  .combocell div {
     font-size: 16px !important;
   }
 
@@ -590,14 +604,19 @@ h2 {
     padding-right: 8%;
   }
 
-  .Checkout {
+  .Checkout,
+  .discounts {
     margin-left: 8%;
     margin-right: 8%;
   }
+
+
 }
 
 @media (min-width: 1024px) and (max-width: 1439px) {
-  div, .combocell div {
+
+  div,
+  .combocell div {
     font-size: 16px !important;
   }
 
@@ -700,14 +719,17 @@ h2 {
 
   .BYOP,
   .Checkout,
-  .mainCombo {
+  .mainCombo,
+  .discounts {
     margin-left: 15%;
     margin-right: 15%;
   }
 }
 
 @media (min-width: 1440px) {
-  div, .combocell div {
+
+  div,
+  .combocell div {
     font-size: 16px !important;
   }
 
@@ -807,7 +829,8 @@ h2 {
 
   .BYOP,
   .Checkout,
-  .mainCombo {
+  .mainCombo,
+  .discounts {
     margin-left: 15%;
     margin-right: 15%;
   }
