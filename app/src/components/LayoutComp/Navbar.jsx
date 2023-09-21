@@ -3,9 +3,12 @@ import Nav from 'react-bootstrap/Nav';
 import Navbar from 'react-bootstrap/Navbar';
 import logo from '../../imgs/logo.jpg';
 import cart from '../../imgs/cartf.png'
+import { useSelector } from 'react-redux';
 import { Link } from 'react-router-dom';
 
 function MenuNavbar() {
+  const isAuthenticated = useSelector((state) => state.auth.isAuthenticated);
+
   return (
     <div className='TopMenu'>
       <Navbar expand="lg" className="bg-body-tertiary">
@@ -27,8 +30,13 @@ function MenuNavbar() {
               <Nav.Link href="/Salads">SALADS</Nav.Link>
               <Nav.Link href="/Sides">SIDE ORDERS</Nav.Link>
               <Nav.Link href="/Beverages">BEVERAGES</Nav.Link>
-              <Nav.Link href="/Account">ACCOUNT</Nav.Link>
-              {/* <Nav.Link href="/DeliveryMap">DELIVERY MAP</Nav.Link> */}
+              {isAuthenticated ? (
+               
+                <Nav.Link href='/Dashboard'>ACCOUNT</Nav.Link>
+              ) : (
+              
+                <Nav.Link href="/Login">LOGIN</Nav.Link>
+              )}
             </Nav>
           </Navbar.Collapse>
         </Container>

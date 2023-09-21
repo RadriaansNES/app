@@ -542,6 +542,16 @@ h2 {
   margin-left: 25px;
 }
 
+#center {
+  text-align: center;
+  margin-bottom: 0;
+}
+
+#Account {
+  display: flex;
+  flex-direction: column;
+}
+
 /* Queries */
 
 @media (max-width: 424px) {

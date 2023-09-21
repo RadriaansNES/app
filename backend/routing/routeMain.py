@@ -47,19 +47,35 @@ def login():
     password = data['password']
     
     user = User.query.filter_by(username=username).first()
-    if user and check_password_hash(user.hashed_password, password):
+    if user and check_password_hash(user.hashed_password.decode('utf-8'), password):
         login_user(user)
-        return jsonify(message='Login successful')
-    return jsonify(message='Login failed', error=True)
+        user.is_active = True  # Set is_active to True when the user logs in
+        db.session.commit()
+        
+        # Fetch user information from the database
+        user_info = {
+            'username': user.username,
+            'first_name': user.first_name,
+            'last_name': user.last_name,
+            # Include any other user information you want to pass to the frontend
+        }
 
+        print("User information retrieved from the database:", user_info)  # Add this line for debugging
+
+        return jsonify(message='Login successful', user_info=user_info), 200
+    else:
+        return jsonify(message='Login failed'), 401
+    
 # Go to login on failure (flask-login). 
 @main_blueprint.route('/Account', methods=['GET'])
 @login_required
 def protected_route():
-    # You can access the current logged-in user using `current_user`
-    user_info = {
-        'username': current_user.username,
-        'first_name': current_user.first_name,
-        'last_name': current_user.last_name,
-    }
-    return jsonify(user_info), 200
+    if current_user.is_authenticated and current_user.is_active:
+        user_info = {
+            'username': current_user.username,
+            'first_name': current_user.first_name,
+            'last_name': current_user.last_name,
+        }
+        return jsonify(user_info), 200
+    else:
+        return jsonify(message='Login required or user not active'), 401

@@ -16,6 +16,11 @@ class User(db.Model):  # Inherit from db.Model
     country = db.Column(db.String(50))
     hashed_password = db.Column(db.String(128), nullable=False)  # Change to db.String for hashed_password
     salt = db.Column(db.String(128))  # Change to db.String for salt
+    is_active = db.Column(db.Boolean, default=False)
+
+    def get_id(self):
+        return str(self.id)
+
 
     def __init__(self, username, first_name, last_name, telephone, address, city, postal_code, country, hashed_password, salt):
         self.username = username
@@ -28,3 +33,4 @@ class User(db.Model):  # Inherit from db.Model
         self.country = country
         self.hashed_password = hashed_password
         self.salt = salt
+        self.is_active = True

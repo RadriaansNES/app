@@ -5,6 +5,7 @@ import { useNavigate } from 'react-router-dom';
 
 function RegistrationForm() {
     const navigate = useNavigate();
+    const [alertMessage, setAlertMessage] = useState('');
     const [formData, setFormData] = useState({
         username: '',
         password: '',
@@ -27,7 +28,7 @@ function RegistrationForm() {
 
     const handleSubmit = async (e) => {
         e.preventDefault();
-
+    
         try {
             const response = await fetch('http://localhost:5000/register', {
                 method: 'POST',
@@ -36,10 +37,14 @@ function RegistrationForm() {
                 },
                 body: JSON.stringify(formData),
             });
-
+    
             if (response.ok) {
                 console.log('Registration successful');
-                navigate('/Login');
+                // Set the alert message and trigger a timeout for redirection
+                setAlertMessage('Account successfully created!');
+                setTimeout(() => {
+                    navigate('/Login');
+                }, 1500); // Delay the redirection for 1.5 seconds
             } else {
                 console.error('Registration failed');
                 console.error('Response Status:', response.status);
@@ -51,7 +56,7 @@ function RegistrationForm() {
     };
 
     return (
-        <Layout>
+        <Layout alertMessage={alertMessage} setAlertMessage={setAlertMessage}>
             <div className='menu'>
                 <div className='header' id='ClassicsZa'>
                     <h1>REGISTRATION</h1>
