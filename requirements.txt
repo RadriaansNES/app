@@ -17,4 +17,4 @@ protobuf==4.21.12
 SQLAlchemy==2.0.21
 typing_extensions==4.7.1
 watchdog==3.0.0
-Werkzeug==2.3.7
+Werkzeug==2.2.3
