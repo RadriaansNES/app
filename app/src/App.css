@@ -470,6 +470,21 @@ h2 {
   color: black;
 }
 
+#checkC {
+  width: 80%;
+  background-color: var(--1st-colour);
+  margin-top: 20px;
+  color: black;
+  margin-left: auto;
+  margin-right: auto;
+  display: block;
+  text-align: center;
+}
+
+#Account button {
+  font-size: 16px;
+}
+
 /* Modal */
 .modal {
   display: block;
@@ -522,25 +537,26 @@ h2 {
 
 /* Account related. */
 .Registration {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
   background-color: white;
   margin-left: 8%;
   margin-right: 8%;
   padding-top: 20px;
   margin-bottom: 40px;
-  
-}
-
-.Registration input {
-  min-width: 250px;
 }
 
 .Registration label {
   padding-bottom: 10px;
+  width: 100%;
 }
 
-.Registration button {
-  margin-left: 25px;
+.Registration input {
+  width: 100%;
 }
+
+
 
 #center {
   text-align: center;
@@ -598,7 +614,7 @@ h2 {
     font-size: 22px !important;
   }
 
-  #checkB {
+  #checkB, #checkC {
     font-size: 20px !important;
   }
 
@@ -642,6 +658,12 @@ h2 {
     margin-right: 8%;
   }
 
+  .Registration {
+    margin-left: 22%;
+    margin-right: 22%;
+    padding-left: 3%;
+    padding-right: 3%;
+  }
 
 }
 
@@ -684,13 +706,13 @@ h2 {
     font-size: 22px !important;
   }
 
-  #checkB {
+  #checkB, #checkC {
     font-size: 20px !important;
   }
 
   #dropdown,
   .cart,
-  .header {
+  .header, #Welcome {
     display: none !important;
   }
 
@@ -756,6 +778,47 @@ h2 {
     margin-left: 15%;
     margin-right: 15%;
   }
+
+  .Registration {
+    margin-left: 30%;
+    margin-right: 30%;
+    padding-left: 3%;
+    padding-right: 3%;
+  }
+
+  #Account div {
+    margin-top: 0;
+  }
+
+  #Greet {
+    color: black;
+    text-shadow: none;
+    margin-bottom: 30px;
+  }
+
+  .ClassicsZa {
+    margin-top: 40px;
+    display: flex;
+    flex-direction: column;
+    background-color: white;
+    margin-left: 30%;
+    margin-right: 30%;
+    padding-left: 3% !;
+  }
+
+  .ClassicsZa h1 {
+    margin-bottom: 20px;
+    color: black;
+    text-shadow: none;
+  }
+
+  #checkD {
+  background-color: var(--1st-colour);
+  margin-top: 20px;
+  color: black;
+  }
+
+
 }
 
 @media (min-width: 1440px) {
@@ -798,13 +861,13 @@ h2 {
     font-size: 22px !important;
   }
 
-  #checkB {
+  #checkB, #checkC {
     font-size: 20px !important;
   }
 
   #dropdown,
   .cart,
-  .header {
+  .header, #Welcome {
     display: none !important;
   }
 
@@ -865,5 +928,43 @@ h2 {
   .discounts {
     margin-left: 15%;
     margin-right: 15%;
+  }
+
+  .Registration {
+    margin-left: 40%;
+    margin-right: 40%;
+    padding-left: 3%;
+    padding-right: 3%;
+  }
+  #Account div {
+    margin-top: 0;
+  }
+
+  #Greet {
+    color: black;
+    text-shadow: none;
+    margin-bottom: 30px;
+  }
+
+  .ClassicsZa {
+    margin-top: 40px;
+    display: flex;
+    flex-direction: column;
+    background-color: white;
+    margin-left: 35%;
+    margin-right: 35%;
+    padding-left: 3% !;
+  }
+
+  .ClassicsZa h1 {
+    margin-bottom: 20px;
+    color: black;
+    text-shadow: none;
+  }
+
+  #checkD {
+  background-color: var(--1st-colour);
+  margin-top: 20px;
+  color: black;
   }
 }

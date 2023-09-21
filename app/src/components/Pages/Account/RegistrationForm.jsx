@@ -166,7 +166,7 @@ function RegistrationForm() {
                             />
                         </label>
                         <br />
-                        <button id ='checkB' type="submit">Register</button>
+                        <button id ='checkC' type="submit">Register</button>
                     </form>
                 </div>
             </div>

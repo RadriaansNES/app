@@ -83,7 +83,7 @@ function LoginPage(props) {
                         {showErrorMessage && (
                             <p><strong>Incorrect username or password. Please try again.</strong></p>
                         )}
-                        <button id='checkB' type='submit'>Login</button>
+                        <button id='checkC' type='submit'>Login</button>
                     </form>
                 </div>
                 <div className='Types Registration'>

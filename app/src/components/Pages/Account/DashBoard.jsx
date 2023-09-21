@@ -31,6 +31,20 @@ function Dashboard(props) {
                         <button id='checkB' onClick={handleLogout}>Logout</button>
                     </div>
                 </div>
+                <div className='ClassicsZa' id='hide'>
+                    <div className='Types' id='Account'>
+                        <div><h1 id='welcome'>Hello {props.user && props.user.first_name}</h1></div>
+                        <div>
+                            <h3>Order History</h3>
+                            <p>Orders....etc....</p>
+                        </div>
+                        <div>
+                            <h3>Point System</h3>
+                            <p>Points on account</p>
+                        </div>
+                        <button id='checkD' onClick={handleLogout}>Logout</button>
+                    </div>
+                </div>
             </div>
         </Layout>
     );

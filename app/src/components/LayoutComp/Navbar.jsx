@@ -31,10 +31,10 @@ function MenuNavbar() {
               <Nav.Link href="/Sides">SIDE ORDERS</Nav.Link>
               <Nav.Link href="/Beverages">BEVERAGES</Nav.Link>
               {isAuthenticated ? (
-               
+
                 <Nav.Link href='/Dashboard'>ACCOUNT</Nav.Link>
               ) : (
-              
+
                 <Nav.Link href="/Login">LOGIN</Nav.Link>
               )}
             </Nav>
@@ -50,9 +50,14 @@ function MenuNavbar() {
             <Nav.Link href="/Salads">SALADS</Nav.Link>
             <Nav.Link href="/Sides">SIDE ORDERS</Nav.Link>
             <Nav.Link href="/Beverages">BEVERAGES</Nav.Link>
-            <Nav.Link href="/Account">ACCOUNT</Nav.Link>
+            {isAuthenticated ? (
+
+              <Nav.Link href='/Dashboard'>ACCOUNT</Nav.Link>
+            ) : (
+
+              <Nav.Link href="/Login">LOGIN</Nav.Link>
+            )}
             <Nav.Link href="/checkout">CART</Nav.Link>
-            {/* <Nav.Link href="/DeliveryMap">DELIVERY MAP</Nav.Link> */}
           </Nav>
         </Navbar.Collapse>
       </Container>
