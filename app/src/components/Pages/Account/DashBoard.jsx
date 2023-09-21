@@ -8,6 +8,7 @@ function Dashboard(props) {
     const navigate = useNavigate();
 
     const handleLogout = () => {
+        console.log('User object in Dashboard:', props.user);
         // Dispatch the logout action to change the isAuthenticated state
         props.logout();
         navigate('/Login');
