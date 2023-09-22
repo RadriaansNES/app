@@ -7,7 +7,7 @@ app = Flask(__name__)
 app.config.from_object(Config)
 
 
-CORS(app)  # Enable CORS
+CORS(app) 
 
 db.init_app(app)
 
