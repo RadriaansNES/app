@@ -26,7 +26,10 @@ function LoginPage(props) {
         e.preventDefault();
 
         try {
-            const response = await fetch('http://localhost:5000/login', {
+            // Variable porting for render
+            const port = process.env.PORT || 5000;
+
+            const response = await fetch(`http://localhost:${port}/login`, {
                 method: 'POST',
                 headers: {
                     'Content-Type': 'application/json',
@@ -35,11 +38,11 @@ function LoginPage(props) {
             });
 
             const data = await response.json();
-            
+
             if (response.ok) {
                 console.log('Login successful. User Info:', data.user_info);
-                props.login(data.user_info); 
-                  localStorage.setItem('user', JSON.stringify(data.user_info))
+                props.login(data.user_info);
+                localStorage.setItem('user', JSON.stringify(data.user_info))
                 navigate('/Dashboard');
             } else {
                 console.error('Login failed');

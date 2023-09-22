@@ -28,9 +28,10 @@ function RegistrationForm() {
 
     const handleSubmit = async (e) => {
         e.preventDefault();
-    
+        const port = process.env.PORT || 5000;
+        
         try {
-            const response = await fetch('http://localhost:5000/register', {
+            const response = await fetch(`http://localhost:${port}/register`, {
                 method: 'POST',
                 headers: {
                     'Content-Type': 'application/json',
