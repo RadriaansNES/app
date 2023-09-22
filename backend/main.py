@@ -32,4 +32,5 @@ def load_user(user_id):
 if __name__ == '__main__':
     from routing.routeMain import main_blueprint  
     app.register_blueprint(main_blueprint)
-    app.run()
+    port = int(os.environ.get('PORT', 8000))
+    app.run(host='0.0.0.0', port=port)
