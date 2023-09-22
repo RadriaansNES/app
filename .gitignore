@@ -3,3 +3,4 @@ backend/config.py
 node_modules
 venv
 __pycache__
+build
