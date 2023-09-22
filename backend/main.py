@@ -1,16 +1,20 @@
+import os
 from flask import Flask, render_template
-from config import Config
+from flask_sqlalchemy import SQLAlchemy
 from flask_login import LoginManager
-from models.users import User, db
+from models.users import User
 from flask_cors import CORS 
+from config import Config
 
 app = Flask(__name__, static_folder='../app/build/static', template_folder='../app/build')
 
-app.config.from_object(Config)
+app.config['SQLALCHEMY_DATABASE_URI'] = os.getenv('SQLALCHEMY_DATABASE_URI', Config.SQLALCHEMY_DATABASE_URI)
+app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False
+app.config['SECRET_KEY'] = os.getenv('SECRET_KEY', Config.SECRET_KEY)
 
-CORS(app) ##Enable CORSs
+CORS(app)  # Enable CORS
 
-db.init_app(app)
+db = SQLAlchemy(app)  # Initialize SQLAlchemy with the app
 
 login_manager = LoginManager()
 login_manager.init_app(app)
