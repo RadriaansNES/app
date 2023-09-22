@@ -2,7 +2,7 @@ import os
 from flask import Flask, render_template
 from flask_sqlalchemy import SQLAlchemy
 from flask_login import LoginManager
-from models.users import User
+from models.users import User, db
 from flask_cors import CORS 
 from config import Config
 
@@ -14,7 +14,8 @@ app.config['SECRET_KEY'] = os.getenv('SECRET_KEY', Config.SECRET_KEY)
 
 CORS(app)  # Enable CORS
 
-db = SQLAlchemy(app)  # Initialize SQLAlchemy with the app
+
+db.init_app(app)
 
 login_manager = LoginManager()
 login_manager.init_app(app)

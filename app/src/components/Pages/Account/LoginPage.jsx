@@ -26,9 +26,7 @@ function LoginPage(props) {
         e.preventDefault();
 
         try {
-            const backendUrl = 'https://great-lakes-pizza.onrender.com'; // Update with your actual backend URL
-
-            const response = await fetch(`${backendUrl}/login`, {
+            const response = await fetch('/login', {
                 method: 'POST',
                 headers: {
                     'Content-Type': 'application/json',
@@ -37,11 +35,11 @@ function LoginPage(props) {
             });
 
             const data = await response.json();
-
+            
             if (response.ok) {
                 console.log('Login successful. User Info:', data.user_info);
-                props.login(data.user_info);
-                localStorage.setItem('user', JSON.stringify(data.user_info))
+                props.login(data.user_info); 
+                  localStorage.setItem('user', JSON.stringify(data.user_info))
                 navigate('/Dashboard');
             } else {
                 console.error('Login failed');
