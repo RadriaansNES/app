@@ -26,10 +26,9 @@ function LoginPage(props) {
         e.preventDefault();
 
         try {
-            // Variable porting for render
-            const port = process.env.PORT || 5000;
+            const backendUrl = 'https://great-lakes-pizza.onrender.com'; // Update with your actual backend URL
 
-            const response = await fetch(`http://localhost:${port}/login`, {
+            const response = await fetch(`${backendUrl}/login`, {
                 method: 'POST',
                 headers: {
                     'Content-Type': 'application/json',
