@@ -47,7 +47,7 @@ def login():
     password = data['password']
     
     user = User.query.filter_by(username=username).first()
-    if user and check_password_hash(user.hashed_password.decode('utf-8'), password):
+    if user and check_password_hash(user.hashed_password, password):  # No need to decode the hashed_password
         login_user(user)
         user.is_active = True  
         db.session.commit()
