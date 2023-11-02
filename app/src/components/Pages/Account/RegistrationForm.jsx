@@ -9,6 +9,7 @@ function RegistrationForm() {
     const [formData, setFormData] = useState({
         username: '',
         password: '',
+        repeatPassword: '',
         first_name: '',
         last_name: '',
         telephone: '',
@@ -28,7 +29,12 @@ function RegistrationForm() {
 
     const handleSubmit = async (e) => {
         e.preventDefault();
-    
+
+        if (formData.password !== formData.repeatPassword) {
+            setAlertMessage('Password and Repeat Password do not match.');
+            return;
+        }
+
         try {
             const response = await fetch('/register', {
                 method: 'POST',
@@ -37,7 +43,7 @@ function RegistrationForm() {
                 },
                 body: JSON.stringify(formData),
             });
-    
+
             if (response.ok) {
                 console.log('Registration successful');
                 setAlertMessage('Account successfully created!');
@@ -80,6 +86,18 @@ function RegistrationForm() {
                                 type="password"
                                 name="password"
                                 value={formData.password}
+                                onChange={handleChange}
+                                required
+                                autoComplete="current-password"
+                            />
+                        </label>
+                        <br />
+                        <label>
+                            Repeat Password:
+                            <input
+                                type="password"
+                                name="repeatPassword"
+                                value={formData.repeatPassword}
                                 onChange={handleChange}
                                 required
                                 autoComplete="current-password"
@@ -165,7 +183,7 @@ function RegistrationForm() {
                             />
                         </label>
                         <br />
-                        <button id ='checkC' type="submit">Register</button>
+                        <button id='checkC' type="submit">Register</button>
                     </form>
                 </div>
             </div>

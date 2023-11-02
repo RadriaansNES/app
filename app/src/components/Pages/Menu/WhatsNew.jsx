@@ -70,7 +70,9 @@ function WhatsNew({ addToCart }) {
     <Layout alertMessage={alertMessage} setAlertMessage={setAlertMessage}>
       <div className='header'>
         <h1>
-          <button>START YOUR ORDER</button>
+          <Link to="/menu">
+            <button>START YOUR ORDER</button>
+          </Link>
         </h1>
       </div>
       <div className='main'>

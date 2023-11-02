@@ -3,6 +3,10 @@ import { connect } from 'react-redux';
 import Layout from '../../LayoutComp/Layout';
 import { addToCart } from '../../../redux/actions';
 import { addItemToCart } from '../../Cart/cartUtils';
+import bread from '../../../imgs/bread.jpg';
+import cheese from '../../../imgs/cheese.jpg';
+import F from '../../../imgs/F.jpg';
+import garlic from '../../../imgs/garlic.jpg';
 
 function SideOrders({ addToCart }) {
     const [alertMessage, setAlertMessage] = useState('');
@@ -32,21 +36,25 @@ function SideOrders({ addToCart }) {
             id: 0,
             name: 'Breadsticks',
             cdescrip: '',
+            image: bread
         },
         {
             id: 1,
             name: 'Cheesesticks',
             cdescrip: '',
+            image: cheese
         },
         {
             id: 2,
             name: 'Wings (10)',
             cdescrip: '',
+            image: F
         },
         {
             id: 3,
             name: 'Garlic Bread',
             cdescrip: '',
+            image: garlic
         }
     ];
 
@@ -88,6 +96,7 @@ function SideOrders({ addToCart }) {
                     {pizzaOptions.map((salad) => (
                         <div key={salad.id} onClick={() => openModal(salad)}>
                             <h2>{salad.name}</h2>
+                            <img src={salad.image} alt={salad.name} /> {/* Display the pizza image */}
                             <p>{salad.cdescrip}</p>
                         </div>
                     ))}
