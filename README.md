@@ -19,11 +19,10 @@
 
 ## Tech Stack:
 
-Frontend: React - A modern JavaScript library for building user interfaces, providing a dynamic and interactive user experience.
-Backend: Python with Flask - Flask is a lightweight web framework that powers the backend, handling requests and business logic.
-Database: MySQL - MySQL is used to efficiently store and manage user data, orders, and pizza details.
-User Authentication: Flask-Login - Flask-Login is employed to secure user registration and authentication, ensuring data privacy.
-Get Started:
+- Frontend: React - A modern JavaScript library for building user interfaces, providing a dynamic and interactive user experience.
+- Backend: Python with Flask - Flask is a lightweight web framework that powers the backend, handling requests and business logic.
+- Database: MySQL - MySQL is used to efficiently store and manage user data, orders, and pizza details.
+- User Authentication: Flask-Login - Flask-Login is employed to secure user registration and authentication, ensuring data privacy.
 
 ## How To Run Locally:
 
