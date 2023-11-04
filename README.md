@@ -22,6 +22,7 @@
 - Frontend: React, Javscript, HTML, CSS
 - Backend: Python, Flask
 - Database: MySQL
+- State Management: Redux
 - User Authentication: Flask-Login 
 
 ## How To Run Locally:
