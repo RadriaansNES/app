@@ -76,6 +76,11 @@ function WhatsNew({ addToCart }) {
         </h1>
       </div>
       <div className='main'>
+        <div className='warnMessage'>
+          <h2>
+            Please note this website was formatted AND styled in request to the client. 
+          </h2>
+        </div>
         <div className='mainCombo'>
           <p className='maininfo' onClick={() => scrollToTopAndNavigate('/combo/0')}>
             2 Medium Pizzas<br />6 Toppings combined
