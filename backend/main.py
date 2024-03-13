@@ -12,8 +12,7 @@ app.config['SQLALCHEMY_DATABASE_URI'] = os.getenv('SQLALCHEMY_DATABASE_URI', Con
 app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False
 app.config['SECRET_KEY'] = os.getenv('SECRET_KEY', Config.SECRET_KEY)
 
-CORS(app)  # Enable CORS
-
+CORS(app) 
 
 db.init_app(app)
 

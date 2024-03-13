@@ -3,6 +3,8 @@ import { connect } from 'react-redux';
 import Layout from '../../LayoutComp/Layout';
 import { addToCart } from '../../../redux/actions';
 import { addItemToCart } from '../../Cart/cartUtils';
+import Meatball from '../../../imgs/meatball.jpg';
+import pizza from '../../../imgs/pizza.jpg';
 
 function Subs({ addToCart }) {
     const [alertMessage, setAlertMessage] = useState('');
@@ -30,11 +32,13 @@ function Subs({ addToCart }) {
             id: 0,
             name: 'Meatball Sub',
             cdescrip: '',
+            image: Meatball, // Add the imported image for Meatball Sub
         },
         {
             id: 1,
             name: 'Pizza Sub',
             cdescrip: '',
+            image: pizza, // Add the imported image for Pizza Sub
         },
     ];
 
@@ -59,6 +63,7 @@ function Subs({ addToCart }) {
                     {pizzaOptions.map((pizza) => (
                         <div key={pizza.id} onClick={() => openModal(pizza)}>
                             <h2>{pizza.name}</h2>
+                            <img src={pizza.image} alt={pizza.name} /> {/* Display the pizza image */}
                             <p>{pizza.cdescrip}</p>
                         </div>
                     ))}

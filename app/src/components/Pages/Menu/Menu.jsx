@@ -1,6 +1,13 @@
 import React from 'react';
 import Layout from '../../LayoutComp/Layout';
 import { connect } from 'react-redux';
+import A from '../../../imgs/A.jpg';
+import B from '../../../imgs/B.jpg';
+import C from '../../../imgs/C.jpg';
+import D from '../../../imgs/D.jpg';
+import E from '../../../imgs/E.jpg';
+import F from '../../../imgs/F.jpg';
+import G from '../../../imgs/G.jpg';
 
 function Menu() {
   return (
@@ -24,52 +31,52 @@ function Menu() {
           <div>
             <a href='/ClassicPizzas'>
               <h2>Classics</h2>
-              <p>Classic pizza img. </p>
+              <img src={A} alt='classicpizzas'/>
             </a>
           </div>
           <div>
             <a href='/Specialties'>
               <h2>Specialties</h2>
-              <p>Spec. img. </p>
+              <img src={B} alt='speciality pizzas'/>
             </a>
           </div>
-          <div>
+          <div id='superspec'>
             <a href='/SuperSpecialties'>
               <h2>Super Specialties</h2>
-              <p>Super spec. img. </p>
+              <img src={C} alt='super speciality pizzas'/>
             </a>
           </div>
           <div>
             <a href='/Subs'>
               <h2>Subs</h2>
-              <p>Subs img. </p>
+              <img src={D} alt='subs'/>
             </a>
           </div>
           <div>
             <a href='/Salads'>
               <h2>Salads</h2>
-              <p>Salad img. </p>
+              <img src={E} alt='salads'/>
             </a>
           </div>
           <div>
             <a href='/Sides'>
               <h2>Sides</h2>
-              <p>Sides img. </p>
+              <img src={F} alt='sides'/>
             </a>
           </div>
           <div>
             <a href='/Beverages'>
               <h2>Beverages</h2>
-              <p>Bev img. </p>
+              <img src={G} alt='beverages'/>
             </a>
           </div>
         </div>
         <div className='discounts'>
             <h2>Discounts</h2>
-            <div>Order <strong>two small pizzas</strong>, recieve <strong>$2.00</strong> off your order</div>
-            <div>Order <strong>two medium pizzas</strong>, recieve <strong>$3.00</strong> off your order</div>
-            <div>Order <strong>two large pizzas</strong>, recieve <strong>$4.00</strong> off your order</div>
-            <div>Order <strong>two extra large pizzas</strong>, recieve <strong>$5.00</strong> off your order</div>
+            <div>Order <strong>two small pizzas</strong>, receive <strong>$2.00</strong> off your order</div>
+            <div>Order <strong>two medium pizzas</strong>, receive <strong>$3.00</strong> off your order</div>
+            <div>Order <strong>two large pizzas</strong>, receive <strong>$4.00</strong> off your order</div>
+            <div>Order <strong>two extra large pizzas</strong>, receive <strong>$5.00</strong> off your order</div>
           </div>
       </div>
     </Layout>

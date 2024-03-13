@@ -3,6 +3,8 @@ import { connect } from 'react-redux';
 import Layout from '../../LayoutComp/Layout';
 import { addToCart } from '../../../redux/actions';
 import { addItemToCart } from '../../Cart/cartUtils';
+import greek from '../../../imgs/greek.jpg';
+import ceaser from '../../../imgs/ceaser.jpg';
 
 function Salads({ addToCart }) {
     const [alertMessage, setAlertMessage] = useState('');
@@ -30,11 +32,13 @@ function Salads({ addToCart }) {
             id: 0,
             name: 'Greek Salad',
             cdescrip: '',
+            image: greek,
         },
         {
             id: 1,
             name: 'Ceaser Salad',
             cdescrip: '',
+            image: ceaser,
         }
     ];
 
@@ -76,6 +80,7 @@ function Salads({ addToCart }) {
                     {pizzaOptions.map((salad) => (
                         <div key={salad.id} onClick={() => openModal(salad)}>
                             <h2>{salad.name}</h2>
+                            <img src={salad.image} alt={salad.name} />
                             <p>{salad.cdescrip}</p>
                         </div>
                     ))}
